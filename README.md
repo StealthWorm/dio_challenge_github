@@ -195,9 +195,9 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-**[Java](https://www.oracle.com/java/technologies/downloads/)**
-**[Eclipse](https://www.eclipse.org/downloads/)**
-**[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)**
+**[Java](https://www.oracle.com/java/technologies/downloads/)**<br>
+**[Eclipse](https://www.eclipse.org/downloads/)**<br>
+**[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)**<br>
 <!-- - [Java](https://reactjs.org)
 - [SpringBoot](https://tailwindcss.com)
 - [Vite](https://vitejs.dev)
