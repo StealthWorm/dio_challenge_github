@@ -1,0 +1,21 @@
+Java é uma linguagem de Programação Orientada a Objetos desenvolvida na década de 90, pela empresa Sun Mycrosystems
+e posteriormente sendo adquirida pela Oracle em 2008.
+
+Características do Java
+  - Linguagem Interpretada
+  - Processo de execução JAVA:
+    1- Escrevemos o código fonte <<Programa.java>> com extensão ".java";
+    2- Utilizamos o JDK(Java Development Kit) pra compilar o código e gerar o arquivo bytecode (extensão ".class")
+    3- Para executar o programa, a JVM(Java Virtual Machine) le o arquivo compilado e as bibliotecas padrões 
+       do JAVA que estão no JRE(Java Runtime Environment)
+  - A compilação do código se da ainda em tempo de desenvolvimento
+  - Compilado para um bytecode que é interpretado por uma Máquina Virtual (JVM)
+
+  - Vantagem de não estar presa a um único SO ou hardware, pois os programsa rodam através da VM.
+
+  - OpenJDK LTS(Long Time Support)
+  - IDE (Integrated Development Environment) - software que combina ferramentas comuns de desenvolvimento em uma única interface gráfica de usuário (GUI), facilitando o desenvolvimento.
+
+  IDEs Java
+    - Eclipse : IDE de desenvolvimento Java, porém suporta outras linguagens. Segue modelo open source.
+    - IntelliJ IDEA : IDE de desenvolvimento escrito em Java. Também opera em outras linguagens.Possui versão community e outra versão  licenciada.

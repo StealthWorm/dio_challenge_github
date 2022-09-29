@@ -1,4 +1,4 @@
-<h1 align="center" style="background-color: #1F192D; height: 100px; padding: 30px 0">
+<h1 align="center" style="background-color: #1F192D; height: 100px; padding: 30px 0; width: 100%">
    <img src="https://hermes.digitalinnovation.one/assets/diome/logo.png" alt="Logo DIO" height="100%" style="padding:10px;"/>
    <img src="https://hermes.digitalinnovation.one/files/assets/67e98e90-35be-41a2-96f0-943d500c27ed.png" alt="Logo DIO"  width="100px" height="100%" style="float:left"/>
 </h1>
@@ -32,7 +32,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     <table style="width:100%; border: 1px solid #FF82B0;">
       <tr>
         <td style="border-right: 1px solid #FF82B0; width:90%">Prepare-se para a Jornada</td>
-        <td style="display: flex;justify-content: center">✅</td>
+        <td style="display: flex;justify-content: center;">✅</td>
       </tr>
       <tr>
         <td style="border-right: 1px solid #FF82B0; width:90%">Conheça as Oportunidades DIO</td>
@@ -195,7 +195,9 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Loading...
+**[Java](https://www.oracle.com/java/technologies/downloads/)**
+**[Eclipse](https://www.eclipse.org/downloads/)**
+**[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)**
 <!-- - [Java](https://reactjs.org)
 - [SpringBoot](https://tailwindcss.com)
 - [Vite](https://vitejs.dev)
