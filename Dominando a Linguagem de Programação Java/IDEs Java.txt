@@ -44,15 +44,16 @@ ATALHOS
   - Pra não ter que criar construtor na mão utiliza "Ctrl + 3" e busca "constructor", onde voce define os campos 
   - Pra não ter que criar os gets/sets na mão utiliza "Ctrl + 3" e busca "ggas", onde voce define os campos 
   - o mesmo comando acima serve para o "generate toString()" e o "generate hashCode() and equals()".
-    * o "toString()" permite visualizar os dados proporcionados pelo construtor, sem ele voce só consegue cessar o endereço de memória.
-  - Ctrl + D -> apaga a linha 
-  - Ctrl + Shift + F -> refatorar código
-  - Ctrl + Shift + O -> importar Classes Faltantes
-  - Ctrl + Alt + Seta pra baixo -> clona conteudo selecionado
-  - Ctrl + 1 -> se posicionado sobre a chamada de uma funcao que espera um retorno dentro da main, ele mostra metodos de atribuição para variaveis locais, facilitando a criação.
- - Ctrl + W ou Ctrl + Shift + w -> Fecha uma ou todas as abas abertas, respectivamente
+    * o "toString()" permite visualizar os dados proporcionados pelo construtor, sem ele voce só consegue acessar o endereço de memória.
+  - "Ctrl + D" -> apaga a linha 
+  -" Ctrl + Shift + F" -> refatorar código
+  - "Ctrl + Shift + O" -> importar Classes Faltantes
+  - "Ctrl + Alt + Seta pra baixo" -> clona conteudo selecionado
+  - "Ctrl + 1" -> se posicionado sobre a chamada de uma funcao que espera um retorno dentro da main, ele mostra metodos de atribuição para variaveis locais, facilitando a criação.
+  - "Ctrl + W" ou "Ctrl + Shift + w" -> Fecha uma ou todas as abas abertas, respectivamente
+  - "Ctrl + Shift + C" -> comenta uma ou mais linhas
 
-  - Eclipse não entende uma pasta como parte do projeto no workspace, voce deve importar o folder pelos comnados "File - Import - General - Import existing project into workspace"
+ - Eclipse não entende uma pasta como parte do projeto no workspace, voce deve importar o folder pelos comnados "File - Import - General - Import existing project into workspace"
 
 GIT E CONTROLE DE VERSÃO
   - Caso o seu projeto seja novo e no possua um repo no github, absta fazer o processo de criar o repo e entao, com o botão direito no projeto no Eclipse > Team > Share Project.
@@ -70,3 +71,31 @@ DEBUG
 JAVA BUILD PATH
   - botão direito no projeto > Build Path
   - O Build Path é usado para construir seu aplicativo. Ele contém todos os seus arquivos de origem e todas as bibliotecas Java necessárias para compilar o aplicativo.
+
+
+IntelliJ
+  Alt + Insert -> para criar algum componente, tambem serve para adicionar construtor, geter/seter, etc.
+  ao invés de digitar "System.out.println()", voce pode digitar "sout" + "Ctrl + Espaço", que ele vai achar a chamada.
+  "Ctrl + Shift + F10" -> para buildar e compilar o arquivo, se ja estiver buildado, é só "Shift + F10"
+  "Ctrl + Shift + /" -> comenta uma ou mais linhas usando /* */, se quiser comentar linha por linha basta usar "Ctrl + /"]
+  "Ctrl + Shift + F" ou "Ctrl + N" -> Para encontrar classes no projeto digite 
+  "Alt + Enter" sobre o nome de um Objeto que queira importar ele importa a classe, cria variaveis, etc
+  "Ctrl + Alt + O" -> apaga os imports nao utilizados
+  "Ctrl + Y" -> Apaga a linha
+  "Ctrl + D" -> Duplica o bloco de linhas onde o cursor esta posicionado
+  "Shift + F6" -> sobre o nome da classe serve pra refatorar nome
+  " Ctrl + Alt + L" -> refatorar código
+  " Ctrl + Shift + Setas" -> muda linhas de lugar
+
+  GIT E CONTROLE DE VERSÃO
+    Aba VCS > Enable Version Control Integration
+    Seleciona o controle de versão, a paritr dai ele ja disponibiliza as opções de repositório (commit, push, etc...)
+    "Ctrl + K" -> Abre janela de controle de diff pra dar commit
+    Caso seja um repo de um local novo, ele vai pedir pra selecionar o repositorio remoto (URL do github)
+    Vai pedir login do Github se for um local novo
+    "Ctrl + Shift + K" -> push direto, depois do commit
+    "Ctrl + F4" -> Fechar abas
+
+  DEBUG
+    "Ctrl + Alt + V" -> atribui retorno de uma função a uma variavel
+
