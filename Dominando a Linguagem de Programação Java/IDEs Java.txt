@@ -11,7 +11,7 @@ Características do Java
   - A compilação do código se da ainda em tempo de desenvolvimento
   - Compilado para um bytecode que é interpretado por uma Máquina Virtual (JVM)
 
-  - Vantagem de não estar presa a um único SO ou hardware, pois os programsa rodam através da VM.
+  - Vantagem de não estar presa a um único SO ou hardware, pois os programas rodam através da VM.
 
   - OpenJDK LTS(Long Time Support)
   - IDE (Integrated Development Environment) - software que combina ferramentas comuns de desenvolvimento em uma única interface gráfica de usuário (GUI), facilitando o desenvolvimento.
@@ -19,3 +19,35 @@ Características do Java
   IDEs Java
     - Eclipse : IDE de desenvolvimento Java, porém suporta outras linguagens. Segue modelo open source.
     - IntelliJ IDEA : IDE de desenvolvimento escrito em Java. Também opera em outras linguagens.Possui versão community e outra versão  licenciada.
+
+Executar arquivo .java pelo cmd
+  - navegar ate a pasta onde esta salva a classe
+  - execute "javac <<nome_do_programa>>.java" para COMPILAR e gerar o ".class"
+  - execute "java <<nome_do_programa>>" , sem extensão, para EXECUTAR o programa propriamente dito.
+
+
+Eclipse
+  - Ctrl + 3 ou Lupa, abre o console de pesquisa
+  - Perspective seta a perspectiva de visualização de pastas e arquivos no projeto, adaptado a cada projeto conforme a necessidade.
+  - File > new > Java Project, "Ctrl + N" + "java project" -> Cria um novo projeto Java
+  - Para criar uma classe, após o projeto ter sido criado, voce pode usar o "Ctrl + N" sobre a pasta "src" e pesquisar "Class"
+    marcando logo em seguida as propriedades de classe que voce quer que a nova classe possua. Caso a classe aparça vazia, 
+    voce pode digitar "main" dentro da "class" criada e digitar "Ctrl + Espaço" para localizar a propriedade de "static void", "function", etc
+  - existem shorthands para JAVA assim como para o JS, por exemplo, ao invés de digitar "System.out.println()", voce pode digitar "sysout + "Ctrl + Espaço"", que ele vai achar a chamada.
+
+  - Para executar , procure o botão verde "run" no menu superior ou no botão direito sobre a classe e "run as java application" 
+
+ATALHOS
+  - F2 acima do pacote para alterar o nome do mesmo ou botão direito > refactor > rename
+  - para os nomes de pacotes, cada "." indica uma hierarquia de pastas, por exempo "com.dio", o arquivo "dio" ficará na pasta "com".
+  - Ctrl + M esconde/ mostra o menu de pastas na esquerda
+  - Pra não ter que criar construtor na mão utiliza "Ctrl + 3" e busca "constructor", onde voce define os campos 
+  - Pra não ter que criar os gets/sets na mão utiliza "Ctrl + 3" e busca "ggas", onde voce define os campos 
+  - o mesmo comando acima serve para o "generate toString()" e o "generate hashCode() and equals()".
+    * o "toString()" permite visualizar os dados proporcionados pelo construtor, sem ele voce só consegue cessar o endereço de memória.
+  - Ctrl + D -> apaga a linha 
+  - Ctrl + Shift + F -> refatorar código
+  - Ctrl + Shift + O -> importar Classes Faltantes
+
+  - botão direito na pasta do projeto no Eclipse > Team > Share Project
+  - Eclipse não entende uma pasta como parte do projeto no workspace, voce deve importar o folder pelos comnados "File - Import - General - Import existing project into workspace"
