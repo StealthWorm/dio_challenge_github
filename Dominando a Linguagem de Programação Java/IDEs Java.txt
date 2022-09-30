@@ -66,3 +66,7 @@ DEBUG
   - No menu superior tem as opções "Step Into" , que varre linha a linha atraves do F5 a partir de um breakpoint
   - "Step Over" vai por blocos de código, funções através do F6.
   - Para encontrar classes no projeto digite "Ctrl + Shift + T"
+
+JAVA BUILD PATH
+  - botão direito no projeto > Build Path
+  - O Build Path é usado para construir seu aplicativo. Ele contém todos os seus arquivos de origem e todas as bibliotecas Java necessárias para compilar o aplicativo.
