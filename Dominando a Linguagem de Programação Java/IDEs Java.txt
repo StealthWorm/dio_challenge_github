@@ -48,10 +48,21 @@ ATALHOS
   - Ctrl + D -> apaga a linha 
   - Ctrl + Shift + F -> refatorar código
   - Ctrl + Shift + O -> importar Classes Faltantes
+  - Ctrl + Alt + Seta pra baixo -> clona conteudo selecionado
+  - Ctrl + 1 -> se posicionado sobre a chamada de uma funcao que espera um retorno dentro da main, ele mostra metodos de atribuição para variaveis locais, facilitando a criação.
+ - Ctrl + W ou Ctrl + Shift + w -> Fecha uma ou todas as abas abertas, respectivamente
 
   - Eclipse não entende uma pasta como parte do projeto no workspace, voce deve importar o folder pelos comnados "File - Import - General - Import existing project into workspace"
 
+GIT E CONTROLE DE VERSÃO
   - Caso o seu projeto seja novo e no possua um repo no github, absta fazer o processo de criar o repo e entao, com o botão direito no projeto no Eclipse > Team > Share Project.
     Aqui voce primeiro deve compartilhar o projeto setando o ".git" gerado no github, para, só então criar o commit e o push, passando usuário e senha.
 
   - Caso o projeto seja criado dentro de uma pasta que ja possui um git gerado, a IDE ja vai identificar no momento da abertura do mesmo no Eclipse.
+
+DEBUG
+  - Scanner (escaneia input para leitura de dados)
+  - Definir breakpoints > Debug as > Java Application
+  - No menu superior tem as opções "Step Into" , que varre linha a linha atraves do F5 a partir de um breakpoint
+  - "Step Over" vai por blocos de código, funções através do F6.
+  - Para encontrar classes no projeto digite "Ctrl + Shift + T"
