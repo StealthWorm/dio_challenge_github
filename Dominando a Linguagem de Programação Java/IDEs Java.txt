@@ -49,5 +49,9 @@ ATALHOS
   - Ctrl + Shift + F -> refatorar código
   - Ctrl + Shift + O -> importar Classes Faltantes
 
-  - botão direito na pasta do projeto no Eclipse > Team > Share Project
   - Eclipse não entende uma pasta como parte do projeto no workspace, voce deve importar o folder pelos comnados "File - Import - General - Import existing project into workspace"
+
+  - Caso o seu projeto seja novo e no possua um repo no github, absta fazer o processo de criar o repo e entao, com o botão direito no projeto no Eclipse > Team > Share Project.
+    Aqui voce primeiro deve compartilhar o projeto setando o ".git" gerado no github, para, só então criar o commit e o push, passando usuário e senha.
+
+  - Caso o projeto seja criado dentro de uma pasta que ja possui um git gerado, a IDE ja vai identificar no momento da abertura do mesmo no Eclipse.
