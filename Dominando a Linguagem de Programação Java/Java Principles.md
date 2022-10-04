@@ -36,3 +36,93 @@
   - Upcast(ímplicito) -> uma var de capacidade menor atribuindo para uma de capacidade maior (int i = 5; long l = i;)
   - Downcast(explicito) -> uma var de capacidade maior atribuindo para uma de capacidade menor, precisa deixar EXPLICITO o tipo(int i; long l = 100; i = (int)l)
     - Downcast pode gerar perda de valores.
+
+## Métodos
+  - Porção de código disponibilizada por uma classe, é executado quando é feita uma requisição a ele e realizam determinado comportamento. Não funciona por si só.
+  - É chamado a partir de uma Classe ou de um Objeto.
+
+  <blockquote> 
+    <<"nome_da_classe">>.<<"nome_do_metodo">>();
+    <<"nome_do_objeto">>.<<"nome_do_metodo">>();
+
+    Exemplo:
+
+    - classes, por padrão em java, possuem a primeira letra Maiúscula
+      Math.random();
+      Math.sqrt(4);
+
+    - objetos, por padrão em java, possuem a primeira letra Minúscula
+      usuario.getEmail();
+  </blockquote>
+
+  visibilidade (opcional) - public, private, protected
+  tipo         (opcional) - concreto, abstrato
+  modificador  (opcional) - static ou final
+  retorno                 - tipo de dado ou void
+  nome                    - nome do , método
+  parametros  (opcional)  - parametros do método
+
+  ```java
+  public string getNome() {...}
+  public int verificarDistancia(int coord1, int coord2) {...}
+  public abstract void executar();
+  ```
+  #### Particularidades
+  - **Assinatura: forma de identificar unicamente um método**
+    - nome + parametros
+    ```java
+    public double calcularTotalVenda(double preco1, double preco2, double preco3) {...}
+
+    //Assinatura
+    calcularTotalVenda(double preco1, double preco2, double preco3)
+    ```
+  - **Contrutor e Destrutor: métodos especiais usados na Orientação a Objetos**
+  - **Mensagem: ato de solicitar ao método que este execute. Pode ser direcionada a um objeto ou uma classe**
+  - **Passagem de parametros**
+    - Por valor(cópia)
+    ```java
+    int i = 10;
+    public void fazerAlgo(int i) {
+      i = i + 10;
+      System.out.println("Valor de i dentro: " + i);
+    }
+    System.out.println("Valor de i fora: " + i);
+    ```
+    - Por referencia(endereço)
+      - Mais destinado à **POO**
+
+
+  #### Boas Práticas
+  - Nomes sugestivos e descritivos, porém curtos
+  - Notação camelo (a letra de cada Palavra após a primeira é maiúscula -> "verificarMétodoCompra()")
+  - Deve possuir entre 80 e 120 linhas
+  - Evitar lista de parametros longas
+  - Visibilidades adequadas
+
+## Sobrecarga
+  - É a capacidade de definir métodos para diferentes contextos, mas preservando o seu nome.
+  - Os métodos são diferenciados pelos parametros incluidos.
+  - 
+  ```java
+  // a ASSINATURA de cada método é diferente
+  converterParaInteiro(float f);
+  converterParaInteiro(float f, RoundType rd);
+  converterParaInteiro(double d);
+  converterParaInteiro(String s);
+  ```
+  #### Sobrecarga x Sobrescrita
+    - Sobrecarga mantém o nome e muda a estrutura de parametros
+    - Sobrescrita tem relação com herança, um conceito da POO
+
+## Retornos
+  - "return"
+  - o tipo de dado retornado deve ser compatível com o do método
+  - pode ser um tipo primitivo ou objeto.
+  ```java
+  public string getMensagem(){
+    return "Olá!" 
+  }
+  public double getJuros(){
+    return 2.36; 
+  }
+  ```
