@@ -126,3 +126,11 @@
     return 2.36; 
   }
   ```
+
+  ## Estruturas de Repetição e Controle de Fluxo
+  - Habilidade de ajustar a maneira como o programa executa suas tarefas. Podem ser executadas seletivamente, repetidamente ou excepcionalmente.
+  - Estruturas condicionais : "if-else", "switch-case"
+  - Estruturas de Repetição : "for", "while", "do-while"
+    - variavel incrementada a cada iteração.
+    - do-while testa a condição ao menos uma vez antes de validar a condição.
+  - Estruturas de Exceções : "try-catch-finally", "throw"
