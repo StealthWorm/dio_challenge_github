@@ -127,10 +127,50 @@
   }
   ```
 
-  ## Estruturas de Repetição e Controle de Fluxo
+## Estruturas de Repetição e Controle de Fluxo
   - Habilidade de ajustar a maneira como o programa executa suas tarefas. Podem ser executadas seletivamente, repetidamente ou excepcionalmente.
   - Estruturas condicionais : "if-else", "switch-case"
   - Estruturas de Repetição : "for", "while", "do-while"
     - variavel incrementada a cada iteração.
     - do-while testa a condição ao menos uma vez antes de validar a condição.
   - Estruturas de Exceções : "try-catch-finally", "throw"
+    - estrutura de prevenção de erros ou direcionamento de exceções.
+    - entradas erradas, falta de addos, etc.
+    - NullPointerException (quando tentamos obter alguma info. de uma var nula)
+    - ArithmeticException (quando tentamos dividir um valor por zero)
+    - SQLException (quando existe algum erro relacionado com a interacao com o banco de dados)
+    - FileNotFoundException (quando tentamos ler ou escrever em um arquivo que não existe)
+      - Hierarquia de exceções
+      - Java possui uma variedade de classes que representam exceções, que são organizadas em 2 categorias **Checked and Unchecked Exceptions**
+  <img src="https://arquivo.devmedia.com.br/artigos/Thiago_Varallo/Excecoes_Java/Excecoes_Java2.jpg" alt="hierarchy" style="height: 400px; width:80%;"/>
+
+  <br>
+
+  - O risco de uma exceção ser disparada é o que define se ela será "checada" ou "não checada". A capacidade de prever se ela irá ocorrer ou não. As trataivas "checked" indicam que, ao chamar um método, determina que voce precisa tratar algum erro imediatamente.
+  - RunTimeExceptions são erros em tempo de execução, que poderiam ou não ocorrer.
+  - Exceções usam o "throws" 
+  
+## Collections  
+  - É um objeto que agrupa multiplos elementos (variáveis primitivas ou objetos) dentro de uma única unidade.
+  - Serve para armazenar e processar conjuntos de dados de forma eficiente.
+  - Composição de uma Collection:
+    - Interfaces: É um contrato que define como a classe será implementada.
+    - Implementações ou Classes: são as materializações, a codificação das interfaces.
+    - Algoritmos: sequencia logica e definida de intruções para resolver o problema.
+    - LIST (ArrayList , LinkedList)
+    - SET  (HashSet, LinkedHashSet)
+    - MAP  (HashMap, LinkedHashMap)
+
+  ### 👽 java.util.List 
+  - permite elementos duplicados e garante ordem de inserção
+  - **ArrayList** deve ser usado onde mais operações de <u>pesquisa</u> são necessárias. (as mais utilizadas)
+    - usa array
+    - remover elementos da lista é mais custoso
+  - **LinkedList** deve ser usado onde mais operações de <u>inserção e exclusão</u> são necessárias.
+    - usa lista ligada
+    - remover ou inserir é mais rápido
+
+    ####  Comparator x Comparable
+    - Um objeto **Comparable** é capaz de se comparar com outro objeto. A própria classe deve implementar a interface java.lang.Comparable para comparar suas instâncias. 
+    - Ao contrário de Comparable, **Comparator** é externo ao tipo de elemento que estamos comparando. É uma aula separada. Criamos várias classes separadas (que implementam Comparator) para comparar por membros diferentes.
+    A classe Collections tem um segundo método sort() e usa Comparator. O método sort() invoca o compare() para classificar objetos. Usado quando o Comparable ja foi implementado
