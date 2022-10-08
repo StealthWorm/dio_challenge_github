@@ -174,3 +174,43 @@
     - Um objeto **Comparable** é capaz de se comparar com outro objeto. A própria classe deve implementar a interface java.lang.Comparable para comparar suas instâncias. 
     - Ao contrário de Comparable, **Comparator** é externo ao tipo de elemento que estamos comparando. É uma aula separada. Criamos várias classes separadas (que implementam Comparator) para comparar por membros diferentes.
     A classe Collections tem um segundo método sort() e usa Comparator. O método sort() invoca o compare() para classificar objetos. Usado quando o Comparable ja foi implementado
+
+  ### 👽 java.util.Set
+  - não permite elementos duplicados
+  - não possui indice
+  - HashSet, LinkedHashSet, TreeSet
+    - hashCode e equals andam juntos! Se você implementar um DEVE fazer o mesmo com o outro. Não vai dar erro se não o fizer, mas a chance de alguma lógica dar errado por conta disso é muito grande.
+    - A comparação de objetos é feita através do resultado do método equals() . A implementação correta do hashCode() é aquela que sempre retorna o mesmo valor quando chamado para um mesmo objeto, de acordo com o contrato do hashCode().
+    - HashSet atribui os elementos aleatoriamente dentro do Set. 
+    - LinkedHashSet nos permite trabalhar com ordem dos elementos inseridos, afinal ele insere cada nodo como um elemento em uma lista ligada.(trabalha com a ordem de inserção)
+    - TreeSet atribui os elementos em forma de arvore, dessa forma eles aparecem ordenados de acordo com um criterio de **ordem natural**, devinido atraves do "Comparable" da classe respectiva. 
+
+  ### java.util.Map
+  - Elementos únicos(key) para cada valor. Atribuição chave/valor. 
+  - Chaves NÃO PODEM SER REPETIDAS.
+  - HashMap (O(1) para get, put, containsKey e remove)
+  - LinkedHashMap(O(1) para get, put, containsKey e remove)
+  - TreeMap(O(log n) para get, put, containsKey e remove)
+  - Set<Map.Entry<K,V>>	entrySet() - Retorna uma Setvisualização dos mapeamentos contidos neste mapa. Para lidar com valores isolados dentro do mapa.
+  - keySet() - Retorna uma Setvisualização das **chaves** contidas neste mapa.(Set<>)
+  - values() - Retorna uma Collectionvisualização dos **valores** contidos neste mapa. (Collection<>)
+
+  ###  (Stream)
+  - Classe anonima 
+    - Em Java, é uma classe que não recebeu um nome e é tanto declarado  e intanciado em uma unica instrução. Considere o uso dessa classe quando voce precisar criar uma classe que sera instanciada apenas uma vez. Ao inves de voce criar um "new funcao" atribuindo a uma variavel, voce ja instacia a mesma com todo o corpo da execução.
+  - Functional Interface
+    - Qualquer interface com um SAM (Single Abstract Method) é uma interface funcional e sua implementação pode ser tratada como expressões lambda.
+    - Comparator
+    - Consumer
+    - Function
+    - Predicate
+    - ActionListener também é uma Interface Funcional, porém sem a notação @FunctionalInterface
+  - Lambda
+    - Uma função lambda é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno e o modificador de acesso. A ideia é que o método seja declarado no mesmo lugar em que será usado. As funções lambda em Java tem a sintaxe definida **como (argumento) -> (corpo)**.
+    - É como se fosse a simplificação de uma classe anonima.
+  - Reference Method
+    - Method Reference é um novo recurso do Java 8 que permite fazer referência a um método ou construtor de uma classe (de forma funcional) e assim indicar que ele deve ser utilizado num ponto específico do código, deixando-o mais simples e legível . Para utilizá-lo, basta informar uma classe ou referência seguida do símbolo “::” e o nome do método sem os parênteses no final.
+    - Uma forma de simplificar o Lambda.
+  - Streams API
+    - A Streams API traz uma nova opção para a manipulação de coleções em Java seguindo os princípios da programação funcional. Combinada com as expressões lambda, ela proporciona uma forma diferente de lidar com conjuntos de elementos, oferecendo ao desenvolvedor uma maneira simples e concisa de escrever código que resulta em facilidade de manutenção e paralelização sem efeitos indesejados em tempo de execução.
+    - SOURCE -> PIPELINE -> TERMINAL  

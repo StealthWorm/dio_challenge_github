@@ -5,12 +5,14 @@ import java.util.List;
 
 public class ExemploOrdenacaoList {
     public static void main(String[] args) {
-        List<Gato> gatos = new ArrayList<>() {{
-            add(new Gato("Jon", 18, "preto"));
-            add(new Gato("Jon", 18, "azul"));
-            add(new Gato("Simba", 6, "listrado"));
-            add(new Gato("Armin", 12, "amarelo"));
-        }};
+        List<Gato> gatos = new ArrayList<>() {
+            {
+                add(new Gato("Jon", 18, "preto"));
+                add(new Gato("Jon", 18, "azul"));
+                add(new Gato("Simba", 6, "listrado"));
+                add(new Gato("Armin", 12, "amarelo"));
+            }
+        };
 
         System.out.println("--\tOrdem de Insercao\t--");
         System.out.println(gatos);
@@ -19,27 +21,26 @@ public class ExemploOrdenacaoList {
         Collections.shuffle(gatos);
         System.out.println(gatos);
 
-        System.out.println("--\tOrdem Aleatoria\t--");
-        Collections.shuffle(gatos);
-        System.out.println(gatos);
-
         // ordenar por ordem natural precisa implementar o Comparable
-        // nesse caso o comparable esta utilizando uma string com ignoreCase e retornando um Inteiro (retorna 1 quando o valor 1 for maior que o valor 2 , -1 quando for menor e 0 quando for igual)
+        // nesse caso o comparable esta utilizando uma string com ignoreCase e
+        // retornando um Inteiro (retorna 1 quando o valor 1 for maior que o valor 2 ,
+        // -1 quando for menor e 0 quando for igual)
         System.out.println("--\tOrdem Natural (Nome)\t--");
         Collections.sort(gatos);
         System.out.println(gatos);
 
         System.out.println("--\tOrdem Idade\t--");
-//        Collections.sort(gatos, new ComparatorIdade());
+        // Collections.sort(gatos, new ComparatorIdade());
         gatos.sort(new ComparatorIdade());
         System.out.println(gatos);
 
         System.out.println("--\tOrdem Cor\t--");
-//        Collections.sort(gatos, new ComparatorIdade());
+        // Collections.sort(gatos, new ComparatorIdade());
         gatos.sort(new ComparatorCor());
         System.out.println(gatos);
 
-        // estamos definindo pra ele comparar primeiro o nome, depois a cor e depois a idade, nessa ordem
+        // estamos definindo pra ele comparar primeiro o nome, depois a cor e depois a
+        // idade, nessa ordem
         System.out.println("--\tOrdem Nome->Cor->idade\t--");
         gatos.sort(new ComparatorTodos());
         System.out.println(gatos);
@@ -92,7 +93,7 @@ class Gato implements Comparable<Gato> {
 
     @Override
     public int compareTo(Gato gato) {
-        //utiliza o "this" pois esta dentro da classe Gato
+        // utiliza o "this" pois esta dentro da classe Gato
         return this.getNome().compareToIgnoreCase(gato.getNome());
     }
 }
@@ -115,13 +116,15 @@ class ComparatorTodos implements Comparator<Gato> {
 
     @Override
     public int compare(Gato g1, Gato g2) {
-        //se os nomes forem diferentes retorne por nome
+        // se os nomes forem diferentes retorne por nome
         int nome = g1.getNome().compareToIgnoreCase(g2.getNome());
-        if (nome != 0) return nome;
+        if (nome != 0)
+            return nome;
 
-        //se as cores forem diferentes retorne por cor
+        // se as cores forem diferentes retorne por cor
         int cor = g1.getCor().compareToIgnoreCase(g2.getCor());
-        if (cor != 0) return cor;
+        if (cor != 0)
+            return cor;
 
         // senão, se nome e cor forem iguais, retorne por idade
         return Integer.compare(g1.getIdade(), g2.getIdade());
