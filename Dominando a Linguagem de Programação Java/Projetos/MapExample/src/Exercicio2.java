@@ -30,5 +30,9 @@ public class Exercicio2 {
             System.out.printf("%3d %10d\n", entry.getKey(), entry.getValue());
         }
 
+        // for (Integer entry : lancamentos.keySet()) {
+        //     System.out.printf("%3d %10d\n", entry, lancamentos.get(entry));
+        // }
+
     }
 }
