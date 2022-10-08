@@ -1,4 +1,4 @@
-package ex3;
+package ExemploMapObjObj;
 
 import java.util.Objects;
 

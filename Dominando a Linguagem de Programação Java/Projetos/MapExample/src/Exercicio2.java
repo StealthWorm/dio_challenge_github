@@ -7,8 +7,8 @@ Depois, mostre quantas vezes cada valor foi conseguido.
 public class Exercicio2 {
     public static void main(String[] args) {
         int quantLancamentos = 10;
-
         List<Integer> valores = new ArrayList<>();
+        Map<Integer, Integer> lancamentos = new HashMap<>();
 
         for (int i = 0; i < quantLancamentos; i++) {
             int number = new Random().nextInt(6) + 1;
@@ -16,7 +16,6 @@ public class Exercicio2 {
         }
         System.out.println(valores);
 
-        Map<Integer, Integer> lancamentos = new HashMap<>();
         for (Integer resultado : valores) {
             if (lancamentos.containsKey(resultado)) {
                 lancamentos.put(resultado, (lancamentos.get(resultado) + 1));

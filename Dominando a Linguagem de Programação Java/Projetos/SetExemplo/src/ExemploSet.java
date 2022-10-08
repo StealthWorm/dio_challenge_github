@@ -67,7 +67,7 @@ public class ExemploSet {
         notas2.add(3.6);
         System.out.println(notas2);
 
-        // "Tree" vem de arvore e arvors trabam com nós em um tipo de ordem, geralmente do menor para o maior
+        // "Tree" vem de arvore e arvores trabalham com nós em um tipo de ordem, geralmente do menor para o maior
         System.out.println("Exiba todas as notas na ordem crescente: ");
         Set<Double> notas3 = new TreeSet<>(notas2); // como esta comparando Doubles ele ja possui internamente um método Comparable, caso a classe não possuisse esse método não daria certo
         System.out.println(notas3);
