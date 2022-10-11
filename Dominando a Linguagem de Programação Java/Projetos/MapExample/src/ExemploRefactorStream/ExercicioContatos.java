@@ -66,7 +66,7 @@ public class ExercicioContatos {
 //            }
 //        });
 
-        //exemplo Functional Interface, o método "comparing" permite fazer comparalçoes passando uma Interface funcional "Function". Como ele esta instanciando a interface não preceisa declarar como "new Comparator"
+        //exemplo Functional Interface, o método "comparing" permite fazer comparaçoes passando uma Interface funcional "Function". Como ele esta instanciando a interface não preceisa declarar como "new Comparator"
 //        Set<Map.Entry<Integer, Contato>> set = new TreeSet<>(Comparator.comparing(
 //            // o segundo argumento é o tipo do campo que queremos testar, como é por Numero de Telefone, então é Integer
 //            new Function<Map.Entry<Integer, Contato>, Integer>() {

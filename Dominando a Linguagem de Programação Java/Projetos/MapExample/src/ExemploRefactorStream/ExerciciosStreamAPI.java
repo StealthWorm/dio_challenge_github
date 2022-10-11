@@ -2,10 +2,7 @@ package ExemploRefactorStream;
 
 import java.io.PrintStream;
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.DoubleConsumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,23 +41,22 @@ public class ExerciciosStreamAPI {
 //        listaInteiros.removeIf(val -> val % 2 != 0);
 //        System.out.println(listaInteiros);
 
-        System.out.println("Ignore os 3 primeiros elementos da lista e imprima o restante:");
-        Stream var10000 = numerosAleatoriosInteger.stream().skip(3L);
-//        PrintStream var10001 = System.out;
+//        System.out.println("Ignore os 3 primeiros elementos da lista e imprima o restante:");
+//        Stream var10000 = numerosAleatoriosInteger.stream().skip(3L);
+
 //        Objects.requireNonNull(var10001);
 //        var10000.forEach(var10001::println);
 //        long countNumerosUnicos = numerosAleatoriosInteger.stream().distinct().count();
-//        System.out.println("Retirando os números repetidos da lista, quantos números ficam? " + countNumerosUnicos);
-//        System.out.print("Mostre o menor valor da lista: ");
-//        OptionalInt var8 = numerosAleatoriosInteger.stream().mapToInt(Integer::intValue).min();
-//        var10001 = System.out;
-//        Objects.requireNonNull(var10001);
-//        var8.ifPresent(var10001::println);
-//        System.out.print("Mostre o maior valor da lista: ");
-//        var8 = numerosAleatoriosInteger.stream().mapToInt(Integer::intValue).max();
-//        var10001 = System.out;
-//        Objects.requireNonNull(var10001);
-//        var8.ifPresent(var10001::println);
+
+        Set<Integer> countNumerosUnicos = listaInteiros.stream().collect(Collectors.toSet());
+        Integer count = countNumerosUnicos.size();
+        //        numerosAleatoriosInteger.stream().limit(5L).collect(Collectors.toSet()).forEach(System.out::println);
+        System.out.println("Retirando os números repetidos da lista, quantos números ficam? " + countNumerosUnicos);
+        System.out.println("O tamanho final é de " + count);
+
+//        System.out.print("Mostre o menor valor da lista: " +  listaInteiros.stream().mapToInt(Integer::intValue).min());
+//        System.out.print("Mostre o maior valor da lista: " + numerosAleatorios.stream().mapToInt(Integer::parseInt).max());
+
 //        int somaDosNumerosPares = numerosAleatoriosInteger.stream().filter((i) -> {
 //            return i % 2 == 0;
 //        }).mapToInt(Integer::intValue).sum();

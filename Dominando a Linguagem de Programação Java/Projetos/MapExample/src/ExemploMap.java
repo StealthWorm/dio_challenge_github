@@ -15,6 +15,7 @@ public class ExemploMap {
 //        Map<String, Double> carrosPopulares = new HashMap<>(); //Generics(jdk 5) - Diamont Operator(jdk 7)
 //        HashMap<String, Double> carrosPopulares = new HashMap<>();
 //        Map<String, Double> carrosPopulares2020 = Map.of("gol", 14.4, "uno", 15.6, "mobi", 16.1, "hb20", 14.5, "kwid", 15.6)
+//        System.out.println("Exiba o terceiro modelo adicionado: "); //hash não tem ordem pra utilizar esse metodo
 
         System.out.println("Crie um dicionário que relacione os modelos e seus respectivos consumos: ");
         Map<String, Double> carrosPopulares = new HashMap<>() {{
@@ -24,6 +25,7 @@ public class ExemploMap {
             put("hb20", 14.5);
             put("kwid", 15.6);
         }};
+
         System.out.println(carrosPopulares.toString());
 
         System.out.println("Substitua o consumo do gol por 15,2 km/l: ");
@@ -33,8 +35,6 @@ public class ExemploMap {
         System.out.println("Confira se o modelo tucson está no dicionário: " + carrosPopulares.containsKey("tucson"));
 
         System.out.println("Exiba o consumo do uno: " + carrosPopulares.get("uno")); //get na chave
-
-//        System.out.println("Exiba o terceiro modelo adicionado: "); //hash não tem ordem pra utilizar esse metodo
 
         System.out.println("Exiba os modelos: ");
         Set<String> modelos = carrosPopulares.keySet(); //retorna um SET com os dados das chaves
