@@ -118,7 +118,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%">Tratamento de Exceções Java</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%">Testes Unitários com JUnit</td>
@@ -126,7 +126,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%">Desafios de Código Intermediário Java - Québec</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%">Criando um Banco Digital com Java e Orientação a Objetos</td>
