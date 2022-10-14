@@ -1,6 +1,7 @@
 package org.challenge;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 import java.util.*;
 import java.util.function.Function;
@@ -12,6 +13,7 @@ public class Main {
         Random rand = new Random();
 
         Set<Conta> contas = new LinkedHashSet<>();
+        String[] options = {"Conta Corrente", "Conta Poupanca", "Todos", "Listar Clientes"};
 
         Set<Cliente> clientes = new LinkedHashSet<>() {{
             add(new Cliente("Thierry"));
@@ -31,24 +33,25 @@ public class Main {
             contas.add(cp);
         }
 
-        Banco banco = new Banco("nome teste", contas);
+        Banco banco = new Banco(contas);
+        banco.mostrarClientes();
 
-        String[] options = {"Conta Corrente", "Conta Poupanca", "Todos"};
+        IConta ccTeste = new ContaCorrente(new Cliente("Rick"), 0);
+        IConta cpTeste = new ContaPoupanca(new Cliente("Rick"), 1);
 
-        banco.getContas().stream().filter(x -> x.tipoConta == 1).collect(Collectors.toSet());
+        ccTeste.depositar(1000000d);
+        cpTeste.depositar(1000d);
 
-        List<Conta> contaCorrenteThierry = banco.getContas().stream().filter(x -> x.getCliente().getNome() == "Thierry").toList();
-        contaCorrenteThierry.forEach(System.out::println);
-        contaCorrenteThierry.forEach(conta -> {
-            if (conta.tipoConta == 0) {
-                conta.sacar(1000d);
-            } else {
-                conta.depositar(1000d);
-            }
-        });
+        ContaCorrente cTesteCredito = (ContaCorrente) ccTeste;
+        cTesteCredito.descontarCredito(1000d);
+        cTesteCredito.descontarCredito(4000d);
+        cTesteCredito.descontarCredito(4000d);
 
-        contaCorrenteThierry.forEach(conta -> conta.descontarCredito(conta, 1000d));
-        System.out.println(contaCorrenteThierry);
+        ContaPoupanca cTestePoupanca = (ContaPoupanca) cpTeste;
+        System.out.println("A projeção para o proximo mes dessa conta, sob o valor de " + String.format("%.2f", cTestePoupanca.projecaoJuros) + " é de: " + String.format("%.2f", cTestePoupanca.calcularJurosProximoMes(cTestePoupanca.saldo)));
+
+        ccTeste.imprimirExtrato();
+        cpTeste.imprimirExtrato();
 
         int value = JOptionPane.showOptionDialog(
                 null,
@@ -65,11 +68,14 @@ public class Main {
         switch (value) {
             case 0: {
                 Set<Conta> contaCorrente = banco.getContas().stream().filter(x -> x.tipoConta == 1).collect(Collectors.toSet());
+                JPanel painelFundo;
+                JTable tabela;
+                JScrollPane barraRolagem;
 
                 for (Conta c : contaCorrente) {
-                    saidaFormatada += c.getCliente().getNome() + "\t-\t" +
-                            Integer.toString(c.getAgencia()) + "\t-\t" +
-                            Integer.toString(c.getNumero()) + "\t-\t" +
+                    saidaFormatada += c.getCliente().getNome() + "   -   " +
+                            Integer.toString(c.getAgencia()) + "   -   " +
+                            Integer.toString(c.getNumero()) + "   -   " +
                             String.format("R$ %.2f", c.getSaldo()) + "\n";
                     c.imprimirExtrato();
                 }
@@ -81,9 +87,9 @@ public class Main {
                 Set<Conta> contaCorrente = banco.getContas().stream().filter(x -> x.tipoConta == 1).collect(Collectors.toSet());
 
                 for (Conta c : contaCorrente) {
-                    saidaFormatada += c.getCliente().getNome() + "\t-\t" +
-                            Integer.toString(c.getAgencia()) + "\t-\t" +
-                            Integer.toString(c.getNumero()) + "\t-\t" +
+                    saidaFormatada += c.getCliente().getNome() + "   -   " +
+                            Integer.toString(c.getAgencia()) + "   -   " +
+                            Integer.toString(c.getNumero()) + "   -   " +
                             String.format("R$ %.2f", c.getSaldo()) + "\n";
                     c.imprimirExtrato();
                 }
@@ -93,14 +99,19 @@ public class Main {
             }
             case 2: {
                 for (Conta c : banco.getContas()) {
-                    saidaFormatada += c.getCliente().getNome() + "\t-\t" +
-                            Integer.toString(c.getAgencia()) + "\t-\t" +
-                            Integer.toString(c.getNumero()) + "\t-\t" +
+                    saidaFormatada += c.getCliente().getNome() + "   -   " +
+                            Integer.toString(c.getAgencia()) + "   -   " +
+                            Integer.toString(c.getNumero()) + "   -   " +
                             String.format("R$ %.2f", c.getSaldo()) + "\n";
                     c.imprimirExtrato();
                 }
 
                 JOptionPane.showMessageDialog(null, "Lista de todas as contas\n" + saidaFormatada);
+                break;
+            }
+            case 3: {
+                Set<String> listarClientes = new TreeSet<>(contas.stream().map(conta -> conta.getCliente().getNome()).toList());
+                JOptionPane.showMessageDialog(null, "Lista de Clientes \n" + listarClientes);
                 break;
             }
 

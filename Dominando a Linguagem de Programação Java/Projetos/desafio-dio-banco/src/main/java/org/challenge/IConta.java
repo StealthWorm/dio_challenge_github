@@ -7,7 +7,5 @@ public interface IConta {
 
     void transferir(IConta destino, double value);
 
-    void descontarCredito(IConta origem, double value);
-
     void imprimirExtrato();
 }

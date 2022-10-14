@@ -1,7 +1,5 @@
 package org.challenge;
 
-import java.util.*;
-
 //abstract class não pode ser implementada. Não faz sentido implementar direto uma Conta, o correto é implementar um dos subtipos que extendem essa classe
 public abstract class Conta implements IConta {
     protected static int AGENCIA_PADRAO = 1;
@@ -9,7 +7,7 @@ public abstract class Conta implements IConta {
     protected int agencia;
     protected int numero;
     protected double saldo;
-    protected double limiteCredito = 5000d;
+
     protected Cliente cliente;
     protected int tipoConta;
 
@@ -65,21 +63,13 @@ public abstract class Conta implements IConta {
         }
     }
 
-    @Override
-    public void descontarCredito(IConta origem, double value) {
-        if (this.limiteCredito > value) {
-            limiteCredito -= value;
-        } else {
-            System.out.println("Não há créditos suficientes para realizar a transação");
-        }
-    }
-
-
     public void imprimirInfosComuns() {
         System.out.println("| \tTitular\t | \tAgência\t | \tNúmero da Conta\t | Saldo \t\t\t\t|");
         System.out.println("| \t" + this.cliente.getNome() + "\t | \t" + this.agencia + "\t\t | \t" + this.numero + "\t\t\t\t | " + String.format("R$ %.2f", this.saldo));
         System.out.println("\n");
     }
+
+    public void descontarCredito(double value) {}
 
     @Override
     public String toString() {
@@ -87,7 +77,6 @@ public abstract class Conta implements IConta {
                 "agencia=" + agencia +
                 ", numero=" + numero +
                 ", saldo=" + saldo +
-                ", limiteCredito=" + limiteCredito +
                 ", cliente=" + cliente +
                 ", tipoConta=" + tipoConta +
                 '}';
