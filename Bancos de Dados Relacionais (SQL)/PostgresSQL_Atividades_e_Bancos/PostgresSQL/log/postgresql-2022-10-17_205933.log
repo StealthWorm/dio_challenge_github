@@ -1,0 +1,102 @@
+2022-10-17 20:59:33.732 -03 [17340] LOG:  database system was shut down at 2022-10-17 20:59:17 -03
+2022-10-17 21:00:39.007 -03 [17728] FATAL:  password authentication failed for user "postgres"
+2022-10-17 21:00:39.007 -03 [17728] DETAIL:  Connection matched pg_hba.conf line 87: "host    all             all             127.0.0.1/32            scram-sha-256"
+2022-10-17 21:04:33.613 -03 [2164] LOG:  checkpoint starting: time
+2022-10-17 21:04:33.634 -03 [2164] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.004 s, total=0.022 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB
+2022-10-17 21:21:35.250 -03 [2164] LOG:  checkpoint starting: immediate force wait
+2022-10-17 21:21:35.262 -03 [2164] LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.013 s; sync files=1, longest=0.002 s, average=0.002 s; distance=1 kB, estimate=1 kB
+2022-10-17 21:24:19.734 -03 [26664] ERROR:  role "professores" already exists
+2022-10-17 21:24:19.734 -03 [26664] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+	ALTER ROLE professores PASSWORD '123';
+2022-10-17 21:24:53.735 -03 [21108] FATAL:  password authentication failed for user "postgres"
+2022-10-17 21:24:53.735 -03 [21108] DETAIL:  Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:25:48.073 -03 [26664] ERROR:  role "professores" already exists
+2022-10-17 21:25:48.073 -03 [26664] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+	ALTER ROLE professores PASSWORD '123';
+	CREATE ROLE thierry LOGIN PASSWORD '123';
+	
+2022-10-17 21:26:35.276 -03 [2164] LOG:  checkpoint starting: time
+2022-10-17 21:26:50.671 -03 [26664] ERROR:  role "thierry" already exists
+2022-10-17 21:26:50.671 -03 [26664] STATEMENT:  CREATE ROLE thierry LOGIN PASSWORD '123' IN ROLE professores;
+2022-10-17 21:28:17.111 -03 [2164] LOG:  checkpoint complete: wrote 929 buffers (5.7%); 1 WAL file(s) added, 0 removed, 0 recycled; write=101.273 s, sync=0.336 s, total=101.836 s; sync files=253, longest=0.025 s, average=0.002 s; distance=4231 kB, estimate=4231 kB
+2022-10-17 21:31:47.292 -03 [26664] ERROR:  syntax error at or near "P" at character 1
+2022-10-17 21:31:47.292 -03 [26664] STATEMENT:  P ROLE thierry;
+2022-10-17 21:33:16.938 -03 [26664] ERROR:  syntax error at or near "professores" at character 461
+2022-10-17 21:33:16.938 -03 [26664] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+	ALTER ROLE professores PASSWORD '123';
+	--CREATE ROLE thierry LOGIN PASSWORD '123';
+	--DROP ROLE thierry;
+	--CREATE ROLE thierry LOGIN PASSWORD '123' IN ROLE professores;	 -- thierry faz parte de professores
+	--CREATE ROLE thierry LOGIN PASSWORD '123' ROLE professores;	-- professores faz parte de thierry
+	
+	CREATE TABLE teste (nome varchar);
+	GRANT ALL ON TABLE teste professores; --dando todos os privilegios na tabela "teste" para a ROLE professores
+	CREATE ROLE thierry LOGIN PASSWORD '123'
+	
+	
+2022-10-17 21:33:23.935 -03 [26664] ERROR:  syntax error at or near "professores" at character 461
+2022-10-17 21:33:23.935 -03 [26664] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+	ALTER ROLE professores PASSWORD '123';
+	--CREATE ROLE thierry LOGIN PASSWORD '123';
+	--DROP ROLE thierry;
+	--CREATE ROLE thierry LOGIN PASSWORD '123' IN ROLE professores;	 -- thierry faz parte de professores
+	--CREATE ROLE thierry LOGIN PASSWORD '123' ROLE professores;	-- professores faz parte de thierry
+	
+	CREATE TABLE teste (nome varchar);
+	GRANT ALL ON TABLE teste professores; --dando todos os privilegios na tabela "teste" para a ROLE professores
+	CREATE ROLE thierry LOGIN PASSWORD '123';
+	
+	
+2022-10-17 21:33:38.707 -03 [26664] ERROR:  role "professores" already exists
+2022-10-17 21:33:38.707 -03 [26664] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+	ALTER ROLE professores PASSWORD '123';
+	--CREATE ROLE thierry LOGIN PASSWORD '123';
+	--DROP ROLE thierry;
+	--CREATE ROLE thierry LOGIN PASSWORD '123' IN ROLE professores;	 -- thierry faz parte de professores
+	--CREATE ROLE thierry LOGIN PASSWORD '123' ROLE professores;	-- professores faz parte de thierry
+	
+	CREATE TABLE teste (nome varchar);
+	GRANT ALL ON TABLE teste TO professores; --dando todos os privilegios na tabela "teste" para a ROLE professores
+	CREATE ROLE thierry LOGIN PASSWORD '123';
+	
+	
+2022-10-17 21:35:03.290 -03 [28604] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:35:03.290 -03 [28604] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:35:21.961 -03 [17000] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:35:21.961 -03 [17000] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:35:32.229 -03 [4576] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:35:32.229 -03 [4576] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:35:34.456 -03 [9628] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:35:34.456 -03 [9628] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:36:35.146 -03 [2164] LOG:  checkpoint starting: time
+2022-10-17 21:36:35.937 -03 [2164] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.761 s, sync=0.014 s, total=0.791 s; sync files=8, longest=0.003 s, average=0.002 s; distance=6 kB, estimate=3808 kB
+2022-10-17 21:38:04.683 -03 [1212] ERROR:  relation "teste" does not exist at character 18
+2022-10-17 21:38:04.683 -03 [1212] STATEMENT:  SELECT nome from teste;
+2022-10-17 21:39:04.517 -03 [19072] ERROR:  relation "teste" does not exist at character 18
+2022-10-17 21:39:04.517 -03 [19072] STATEMENT:  SELECT nome FROM teste;
+2022-10-17 21:39:59.946 -03 [19072] ERROR:  permission denied for table teste
+2022-10-17 21:39:59.946 -03 [19072] STATEMENT:  SELECT nome FROM teste;
+2022-10-17 21:41:18.018 -03 [7564] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:41:18.018 -03 [7564] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:41:21.446 -03 [11504] FATAL:  password authentication failed for user "thierry"
+2022-10-17 21:41:21.446 -03 [11504] DETAIL:  Role "thierry" does not exist.
+	Connection matched pg_hba.conf line 89: "host    all             all             ::1/128                 scram-sha-256"
+2022-10-17 21:41:35.938 -03 [2164] LOG:  checkpoint starting: time
+2022-10-17 21:41:40.133 -03 [2164] LOG:  checkpoint complete: wrote 39 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.146 s, sync=0.035 s, total=4.196 s; sync files=31, longest=0.005 s, average=0.002 s; distance=133 kB, estimate=3440 kB
+2022-10-17 21:43:21.848 -03 [1240] ERROR:  permission denied for table teste
+2022-10-17 21:43:21.848 -03 [1240] STATEMENT:  SELECT nome FROM teste;
+2022-10-17 21:43:57.732 -03 [1240] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 21:46:35.148 -03 [2164] LOG:  checkpoint starting: time
+2022-10-17 21:46:35.836 -03 [2164] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.661 s, sync=0.016 s, total=0.688 s; sync files=7, longest=0.006 s, average=0.003 s; distance=6 kB, estimate=3097 kB
+2022-10-17 21:49:17.883 -03 [8976] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 21:49:17.883 -03 [26664] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 21:49:17.883 -03 [4200] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

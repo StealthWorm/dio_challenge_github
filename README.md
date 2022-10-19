@@ -139,7 +139,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     <table style="width:100%; border: 1px solid #FF82B0;">
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%">Conceitos e Melhores Práticas com Bancos de Dados PostgreSQL</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
   </table>
   </details>

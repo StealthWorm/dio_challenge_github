@@ -1,0 +1,297 @@
+2022-10-19 16:21:29.239 -03 [27172] ERROR:  syntax error at or near "ou" at character 8
+2022-10-19 16:21:29.239 -03 [27172] STATEMENT:  create ou replace view vw_bancos (
+		select numero, nome, ativo
+		from banco
+	)
+2022-10-19 16:21:35.671 -03 [27172] ERROR:  syntax error at or near "select" at character 37
+2022-10-19 16:21:35.671 -03 [27172] STATEMENT:  create or replace view vw_bancos (
+		select numero, nome, ativo
+		from banco
+	)
+2022-10-19 16:22:11.470 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:22:14.351 -03 [7348] LOG:  checkpoint complete: wrote 27 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.833 s, sync=0.033 s, total=2.882 s; sync files=22, longest=0.004 s, average=0.002 s; distance=109 kB, estimate=1930 kB
+2022-10-19 16:23:06.302 -03 [27172] ERROR:  column "banco_numero" does not exist at character 8
+2022-10-19 16:23:06.302 -03 [27172] STATEMENT:  select banco_numero, banco_nome, banco_ativo from vw_bancos;
+2022-10-19 16:23:17.499 -03 [27172] ERROR:  syntax error at or near "t" at character 1
+2022-10-19 16:23:17.499 -03 [27172] STATEMENT:  t banco_numero, banco_nome, banco_ativo from vw_bancos_2;
+2022-10-19 16:27:10.111 -03 [27172] ERROR:  column "bacno_numero" does not exist at character 50
+2022-10-19 16:27:10.111 -03 [27172] HINT:  Perhaps you meant to reference the column "vw_bancos_2.banco_numero".
+2022-10-19 16:27:10.111 -03 [27172] STATEMENT:  update vw_bancos_2 set banco_ativo = FALSE where bacno_numero = 51;
+2022-10-19 16:27:11.355 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:27:14.015 -03 [7348] LOG:  checkpoint complete: wrote 25 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.622 s, sync=0.027 s, total=2.661 s; sync files=21, longest=0.002 s, average=0.002 s; distance=115 kB, estimate=1749 kB
+2022-10-19 16:31:59.136 -03 [27172] ERROR:  syntax error at or near ";" at character 122
+2022-10-19 16:31:59.136 -03 [27172] STATEMENT:  -- WITH OPTIONS
+	create or replace view vw_bancos_ativos as (
+		select numero, nome, ativo
+		from banco
+		where ativo is TRUE;
+	) WITH LOCAL CHECK OPTION;
+2022-10-19 16:32:07.877 -03 [27172] ERROR:  new row violates check option for view "vw_bancos_ativos"
+2022-10-19 16:32:07.877 -03 [27172] DETAIL:  Failing row contains (51, Banco Teste View, f, 2022-10-19 16:32:07.876019).
+2022-10-19 16:32:07.877 -03 [27172] STATEMENT:  insert into vw_bancos_ativos(numero, nome, ativo) values(51, 'Banco Teste View', FALSE);
+2022-10-19 16:32:11.025 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:32:13.908 -03 [7348] LOG:  checkpoint complete: wrote 27 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.840 s, sync=0.029 s, total=2.883 s; sync files=23, longest=0.005 s, average=0.002 s; distance=125 kB, estimate=1586 kB
+2022-10-19 16:33:40.462 -03 [27172] ERROR:  syntax error at or near "is" at character 109
+2022-10-19 16:33:40.462 -03 [27172] STATEMENT:  create or replace view vw_bancos_com_a as (
+		select numero, nome, ativo
+		from vw_bancos_ativos
+		where ILIKE is 'a%'
+	) WITH LOCAL CHECK OPTION;
+2022-10-19 16:33:48.985 -03 [27172] ERROR:  type "ilike" does not exist at character 103
+2022-10-19 16:33:48.985 -03 [27172] STATEMENT:  create or replace view vw_bancos_com_a as (
+		select numero, nome, ativo
+		from vw_bancos_ativos
+		where ILIKE 'a%'
+	) WITH LOCAL CHECK OPTION;
+2022-10-19 16:34:55.960 -03 [27172] ERROR:  new row violates check option for view "vw_bancos_com_a"
+2022-10-19 16:34:55.960 -03 [27172] DETAIL:  Failing row contains (333, Beta Plus, t, 2022-10-19 16:34:55.960714).
+2022-10-19 16:34:55.960 -03 [27172] STATEMENT:  insert into vw_bancos_com_a(numero, nome, ativo) values(333, 'Beta Plus', true);
+2022-10-19 16:35:58.866 -03 [27172] ERROR:  duplicate key value violates unique constraint "banco_pkey"
+2022-10-19 16:35:58.866 -03 [27172] DETAIL:  Key (numero)=(333) already exists.
+2022-10-19 16:35:58.866 -03 [27172] STATEMENT:  insert into vw_bancos_com_a(numero, nome, ativo) values(333, 'Alfa Gama', false);
+2022-10-19 16:36:12.722 -03 [27172] ERROR:  new row violates check option for view "vw_bancos_ativos"
+2022-10-19 16:36:12.722 -03 [27172] DETAIL:  Failing row contains (331, Alfa Gama, f, 2022-10-19 16:36:12.722632).
+2022-10-19 16:36:12.722 -03 [27172] STATEMENT:  insert into vw_bancos_com_a(numero, nome, ativo) values(331, 'Alfa Gama', false);
+2022-10-19 16:37:11.911 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:37:14.679 -03 [7348] LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.731 s, sync=0.027 s, total=2.768 s; sync files=20, longest=0.002 s, average=0.002 s; distance=117 kB, estimate=1439 kB
+2022-10-19 16:39:24.952 -03 [27172] ERROR:  new row violates check option for view "vw_bancos_ativos"
+2022-10-19 16:39:24.952 -03 [27172] DETAIL:  Failing row contains (332, Alfa Gama plus, f, 2022-10-19 16:39:24.952087).
+2022-10-19 16:39:24.952 -03 [27172] STATEMENT:  insert into vw_bancos_com_a(numero, nome, ativo) values(332, 'Alfa Gama plus', false);
+2022-10-19 16:42:11.691 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:42:16.015 -03 [7348] LOG:  checkpoint complete: wrote 40 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.252 s, sync=0.061 s, total=4.325 s; sync files=35, longest=0.029 s, average=0.002 s; distance=171 kB, estimate=1313 kB
+2022-10-19 16:47:11.020 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:47:12.462 -03 [7348] LOG:  checkpoint complete: wrote 14 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.410 s, sync=0.021 s, total=1.443 s; sync files=12, longest=0.005 s, average=0.002 s; distance=1 kB, estimate=1181 kB
+2022-10-19 16:52:11.471 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 16:52:14.276 -03 [7348] LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.722 s, sync=0.071 s, total=2.805 s; sync files=20, longest=0.045 s, average=0.004 s; distance=127 kB, estimate=1076 kB
+2022-10-19 16:54:43.059 -03 [27172] ERROR:  syntax error at or near "." at character 76
+2022-10-19 16:54:43.059 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, vw_func.id) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 16:55:13.934 -03 [27172] ERROR:  operator does not exist: integer = funcionarios at character 181
+2022-10-19 16:55:13.934 -03 [27172] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2022-10-19 16:55:13.934 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 16:55:42.758 -03 [27172] ERROR:  missing FROM-clause entry for table "vw_func" at character 183
+2022-10-19 16:55:42.758 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = vw_func.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 16:56:31.130 -03 [27172] ERROR:  each UNION query must have the same number of columns at character 294
+2022-10-19 16:56:31.130 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+	
+2022-10-19 16:57:46.882 -03 [27172] ERROR:  recursive query "vw_func" column 3 has type character varying(50) in non-recursive term but type character varying overall at character 115
+2022-10-19 16:57:46.882 -03 [27172] HINT:  Cast the output of the non-recursive term to the correct type.
+2022-10-19 16:57:46.882 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, null as gerente_nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 16:58:07.619 -03 [27172] ERROR:  cannot change name of view column "funcionario" to "gerente_nome"
+2022-10-19 16:58:07.619 -03 [27172] HINT:  Use ALTER VIEW ... RENAME COLUMN ... to change name of view column instead.
+2022-10-19 16:58:07.619 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome as gerente_nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:02:11.294 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 17:02:11.409 -03 [7348] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.103 s, sync=0.003 s, total=0.116 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=968 kB
+2022-10-19 17:02:43.401 -03 [27172] ERROR:  cannot change name of view column "funcionario" to "gerente_nome"
+2022-10-19 17:02:43.401 -03 [27172] HINT:  Use ALTER VIEW ... RENAME COLUMN ... to change name of view column instead.
+2022-10-19 17:02:43.401 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, gerente_nome, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:03:57.108 -03 [27172] ERROR:  each UNION query must have the same number of columns at character 280
+2022-10-19 17:03:57.108 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:05:13.911 -03 [27172] ERROR:  syntax error at or near "," at character 319
+2022-10-19 17:05:13.911 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:05:22.450 -03 [27172] ERROR:  column reference "nome" is ambiguous
+2022-10-19 17:05:22.450 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, nome) as (
+		select id
+		     , gerente
+		     , (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:06:30.310 -03 [27172] ERROR:  column reference "nome" is ambiguous
+2022-10-19 17:06:30.310 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, nome) as (
+		select id
+		     , gerente
+		     , (select f.nome from funcionarios f where f.id = funcionarios.id) as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id, funcionarios.gerente, (select funcionarios.nome from funcionarios where funcionarios.id = funcionarios.id) as gerente_nome, funcionarios.nome
+		from funcionarios
+		JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:07:11.419 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 17:07:11.436 -03 [7348] LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.018 s; sync files=1, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=872 kB
+2022-10-19 17:15:26.129 -03 [27172] ERROR:  column reference "nome" is ambiguous
+2022-10-19 17:15:26.129 -03 [27172] STATEMENT:  create or replace RECURSIVE view vw_func(id, gerente, nome) as (
+		select id
+		     , gerente
+		     , nome as gerente_nome
+		     , nome
+		from funcionarios
+		where gerente IS NULL
+		
+		UNION ALL
+		
+		select funcionarios.id
+		     , funcionarios.gerente
+		     , funcionarios.nome as gerente_nome
+		     , funcionarios.nome
+		from funcionarios
+		INNER JOIN vw_func ON vw_func.id = funcionarios.gerente
+	);
+2022-10-19 17:22:11.462 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 17:22:14.235 -03 [7348] LOG:  checkpoint complete: wrote 26 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.728 s, sync=0.031 s, total=2.773 s; sync files=20, longest=0.006 s, average=0.002 s; distance=118 kB, estimate=796 kB
+2022-10-19 17:52:40.303 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 17:52:40.652 -03 [7348] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.334 s, sync=0.004 s, total=0.349 s; sync files=3, longest=0.002 s, average=0.002 s; distance=15 kB, estimate=718 kB
+2022-10-19 17:52:43.267 -03 [41848] WARNING:  there is no transaction in progress
+2022-10-19 17:53:54.089 -03 [41848] ERROR:  syntax error at or near "UPDATE" at character 7
+2022-10-19 17:53:54.089 -03 [41848] STATEMENT:  BEGIN
+	UPDATE banco SET ativo = true WHERE numero = 0;
+	COMMIT;
+2022-10-19 17:57:40.652 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 17:57:40.889 -03 [7348] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.223 s, sync=0.007 s, total=0.238 s; sync files=5, longest=0.002 s, average=0.002 s; distance=5 kB, estimate=647 kB
+2022-10-19 18:14:24.594 -03 [29108] ERROR:  unrecognized role option "nobypass" at character 65
+2022-10-19 18:14:24.594 -03 [29108] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASS CONNECTION LIMIT 10;
+2022-10-19 18:14:49.933 -03 [29108] ERROR:  role "professores" already exists
+2022-10-19 18:14:49.933 -03 [29108] STATEMENT:  CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+2022-10-19 18:17:40.922 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:17:41.497 -03 [7348] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.554 s, sync=0.007 s, total=0.575 s; sync files=6, longest=0.002 s, average=0.002 s; distance=36 kB, estimate=586 kB
+2022-10-19 18:36:28.938 -03 [41004] ERROR:  syntax error at or near "ON" at character 102
+2022-10-19 18:36:28.938 -03 [41004] STATEMENT:  CREATE OR REPLACE FUNCTION func_somar(INTEGER, INTEGER)
+	RETURNS INTEGER
+	SECURITY DEFINER
+	RETURN NULL ON NULL INPUT
+	LANGUAGE SQL
+	AS 
+	$$
+		SELECT $1 + $2;
+	$$;
+2022-10-19 18:37:40.526 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:37:41.323 -03 [7348] LOG:  checkpoint complete: wrote 8 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.770 s, sync=0.014 s, total=0.797 s; sync files=8, longest=0.005 s, average=0.002 s; distance=43 kB, estimate=531 kB
+2022-10-19 18:42:40.333 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:42:41.455 -03 [7348] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.094 s, sync=0.014 s, total=1.123 s; sync files=10, longest=0.003 s, average=0.002 s; distance=61 kB, estimate=484 kB
+2022-10-19 18:47:40.457 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:47:41.471 -03 [7348] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.984 s, sync=0.018 s, total=1.014 s; sync files=10, longest=0.005 s, average=0.002 s; distance=49 kB, estimate=441 kB
+2022-10-19 18:52:40.534 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:52:41.660 -03 [7348] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.095 s, sync=0.015 s, total=1.127 s; sync files=9, longest=0.003 s, average=0.002 s; distance=61 kB, estimate=403 kB
+2022-10-19 18:55:47.897 -03 [41004] ERROR:  controle atingiu o fim da função sem RETURN
+2022-10-19 18:55:47.897 -03 [41004] CONTEXT:  função PL/pgSQL bancos_add(integer,character varying,boolean)
+2022-10-19 18:55:47.897 -03 [41004] STATEMENT:  SELECT bancos_add(5432, 'Banco Novo', false);
+2022-10-19 18:57:40.671 -03 [7348] LOG:  checkpoint starting: time
+2022-10-19 18:57:41.358 -03 [7348] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.657 s, sync=0.016 s, total=0.688 s; sync files=7, longest=0.006 s, average=0.003 s; distance=40 kB, estimate=367 kB

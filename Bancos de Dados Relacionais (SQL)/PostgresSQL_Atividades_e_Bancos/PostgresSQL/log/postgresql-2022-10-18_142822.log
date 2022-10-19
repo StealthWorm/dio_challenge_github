@@ -1,0 +1,208 @@
+2022-10-18 14:28:22.810 -03 [7372] LOG:  database system was interrupted; last known up at 2022-10-17 21:46:35 -03
+2022-10-18 14:28:24.309 -03 [7372] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-10-18 14:28:24.314 -03 [7372] LOG:  redo starts at 0/1DD15A0
+2022-10-18 14:28:24.315 -03 [7372] LOG:  invalid record length at 0/1DD1688: wanted 24, got 0
+2022-10-18 14:28:24.315 -03 [7372] LOG:  redo done at 0/1DD1650 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-10-18 14:28:24.320 -03 [7348] LOG:  checkpoint starting: end-of-recovery immediate wait
+2022-10-18 14:28:24.335 -03 [7348] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.003 s, total=0.018 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB
+2022-10-18 19:41:05.487 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 19:42:47.283 -03 [7348] LOG:  checkpoint complete: wrote 933 buffers (5.7%); 0 WAL file(s) added, 0 removed, 1 recycled; write=101.525 s, sync=0.252 s, total=101.798 s; sync files=255, longest=0.006 s, average=0.001 s; distance=4230 kB, estimate=4230 kB
+2022-10-18 19:46:05.299 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 19:46:10.906 -03 [7348] LOG:  checkpoint complete: wrote 52 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.556 s, sync=0.038 s, total=5.608 s; sync files=38, longest=0.003 s, average=0.001 s; distance=160 kB, estimate=3823 kB
+2022-10-18 19:47:17.329 -03 [27700] ERROR:  syntax error at or near ")" at character 229
+2022-10-18 19:47:17.329 -03 [27700] STATEMENT:  CREATE TABLE IF NOT EXISTS cliente (
+		numero BIGSERIAL PRIMARY KEY,	
+		nome VARCHAR(120) NOT NULL,	
+		email VARCHAR(250) NOT NULL,	
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	);
+2022-10-18 19:47:39.324 -03 [27700] ERROR:  syntax error at or near ")" at character 215
+2022-10-18 19:47:39.324 -03 [27700] STATEMENT:  CREATE TABLE cliente (
+		numero BIGSERIAL PRIMARY KEY,	
+		nome VARCHAR(120) NOT NULL,	
+		email VARCHAR(250) NOT NULL,	
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	);
+2022-10-18 19:51:05.908 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 19:51:09.666 -03 [7348] LOG:  checkpoint complete: wrote 35 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.715 s, sync=0.031 s, total=3.758 s; sync files=31, longest=0.004 s, average=0.001 s; distance=131 kB, estimate=3454 kB
+2022-10-18 19:53:11.565 -03 [27700] ERROR:  syntax error at or near "FOREIGN" at character 358
+2022-10-18 19:53:11.565 -03 [27700] STATEMENT:  CREATE TABLE conta_corrente (
+		banco_numero INTEGER NOT NULL,	
+		agencia_numero INTEGER NOT NULL,
+		numero BIGINT NOT NULL,
+		digito SMALLINT NOT NULL,
+		cliente_numero BIGINT NOT NULL,
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (banco_numero, agencia_numero, numero, digito, cliente_numero)
+		FOREIGN KEY (banco_numero, agencia_numero) REFERENCES agencia(banco_numero, numero)
+		FOREIGN KEY (cliente_numero) REFERENCES cliente(numero)
+	);
+2022-10-18 19:54:43.991 -03 [27700] ERROR:  syntax error at or near ")" at character 186
+2022-10-18 19:54:43.991 -03 [27700] STATEMENT:  CREATE TABLE tipo_transacao (
+		id SMALLSERIAL PRIMARY KEY,
+		nome VARCHAR(50) NOT NULL,
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	);
+2022-10-18 19:56:05.678 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 19:56:10.951 -03 [7348] LOG:  checkpoint complete: wrote 49 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.231 s, sync=0.034 s, total=5.273 s; sync files=35, longest=0.003 s, average=0.001 s; distance=189 kB, estimate=3128 kB
+2022-10-18 20:04:03.928 -03 [27700] ERROR:  syntax error at or near "data_criacao" at character 315
+2022-10-18 20:04:03.928 -03 [27700] STATEMENT:  CREATE TABLE cliente_transacoes (
+		id BIGSERIAL PRIMARY KEY,
+		banco_numero INTEGER NOT NULL,	
+		agencia_numero INTEGER NOT NULL,
+		conta_corrente_numero BIGINT NOT NULL,
+		conta_corrente_digito SMALLINT NOT NULL,
+	 	cliente_numero BIGINT NOT NULL,
+		tipo_transacao_id SMALLINT NOT NULL,
+		valor NUMERIC(15, 2) NOT NULL
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+		FOREIGN KEY (banco_numero, agencia_numero, conta_corrente_numero, conta_corrente_digito, cliente_numero) REFERENCES conta_corrente(banco_numero, agencia_numero, numero, digito, cliente_numero)
+		FOREIGN KEY (cliente_numero) REFERENCES cliente(numero)
+	);	
+2022-10-18 20:06:05.965 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 20:06:10.600 -03 [7348] LOG:  checkpoint complete: wrote 43 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.574 s, sync=0.046 s, total=4.635 s; sync files=36, longest=0.006 s, average=0.002 s; distance=145 kB, estimate=2829 kB
+2022-10-18 20:11:05.612 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 20:11:16.160 -03 [7348] LOG:  checkpoint complete: wrote 98 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=10.502 s, sync=0.034 s, total=10.548 s; sync files=35, longest=0.003 s, average=0.001 s; distance=798 kB, estimate=2626 kB
+2022-10-18 20:13:02.102 -03 [30188] ERROR:  syntax error at or near "INCLUDE" at character 38
+2022-10-18 20:13:02.102 -03 [30188] STATEMENT:  select * from cliente c where c.nome INCLUDE "Thierry"
+2022-10-18 20:13:36.501 -03 [30188] ERROR:  column "Thierry Santos" does not exist at character 40
+2022-10-18 20:13:36.501 -03 [30188] STATEMENT:  select * from cliente c where c.nome = "Thierry Santos"
+2022-10-18 20:13:46.210 -03 [30188] ERROR:  column "Thierry Santos" does not exist at character 40
+2022-10-18 20:13:46.210 -03 [30188] STATEMENT:  select * from cliente c where c.nome = "Thierry Santos";
+2022-10-18 20:15:36.739 -03 [30188] ERROR:  column "Thierry" does not exist at character 47
+2022-10-18 20:15:36.739 -03 [30188] STATEMENT:  select * from cliente where cliente.nome LIKE "Thierry";
+2022-10-18 20:16:05.172 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 20:16:06.488 -03 [7348] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.287 s, sync=0.013 s, total=1.317 s; sync files=9, longest=0.003 s, average=0.002 s; distance=24 kB, estimate=2366 kB
+2022-10-18 20:21:05.487 -03 [7348] LOG:  checkpoint starting: time
+2022-10-18 20:21:06.830 -03 [7348] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.312 s, sync=0.018 s, total=1.344 s; sync files=10, longest=0.005 s, average=0.002 s; distance=32 kB, estimate=2133 kB
+2022-10-18 20:24:21.282 -03 [27700] ERROR:  relation "conta_corrente" already exists
+2022-10-18 20:24:21.282 -03 [27700] STATEMENT:  CREATE TABLE IF NOT EXISTS banco (
+		numero INTEGER NOT NULL,
+		nome VARCHAR(50) NOT NULL,	
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (numero)
+	);
+	
+	CREATE TABLE IF NOT EXISTS agencia (
+		banco_numero INTEGER NOT NULL,
+		numero INTEGER NOT NULL,	
+		nome VARCHAR(80) NOT NULL,	
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (banco_numero, numero),
+		FOREIGN KEY (banco_numero) REFERENCES banco(numero)
+	);
+	
+	CREATE TABLE IF NOT EXISTS  cliente (
+		numero BIGSERIAL PRIMARY KEY,	
+		nome VARCHAR(120) NOT NULL,	
+		email VARCHAR(250) NOT NULL,	
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	);
+	
+	CREATE TABLE conta_corrente (
+		banco_numero INTEGER NOT NULL,	
+		agencia_numero INTEGER NOT NULL,
+		numero BIGINT NOT NULL,
+		digito SMALLINT NOT NULL,
+		cliente_numero BIGINT NOT NULL,
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (banco_numero, agencia_numero, numero, digito, cliente_numero),
+		FOREIGN KEY (banco_numero, agencia_numero) REFERENCES agencia(banco_numero, numero),
+		FOREIGN KEY (cliente_numero) REFERENCES cliente(numero)
+	);
+	
+	CREATE TABLE tipo_transacao (
+		id SMALLSERIAL PRIMARY KEY,
+		nome VARCHAR(50) NOT NULL,
+		ativo BOOLEAN NOT NULL DEFAULT TRUE,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	);
+	
+	CREATE TABLE cliente_transacoes (
+		id BIGSERIAL PRIMARY KEY,
+		banco_numero INTEGER NOT NULL,	
+		agencia_numero INTEGER NOT NULL,
+		conta_corrente_numero BIGINT NOT NULL,
+		conta_corrente_digito SMALLINT NOT NULL,
+	 	cliente_numero BIGINT NOT NULL,
+		tipo_transacao_id SMALLINT NOT NULL,
+		valor NUMERIC(15, 2) NOT NULL,
+		data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		FOREIGN KEY (banco_numero, agencia_numero, conta_corrente_numero, conta_corrente_digito, cliente_numero) REFERENCES conta_corrente(banco_numero, agencia_numero, numero, digito, cliente_numero)
+	);	
+2022-10-18 21:11:18.925 -03 [30188] ERROR:  column "tipo_transacao" does not exist at character 20
+2022-10-18 21:11:18.925 -03 [30188] HINT:  Perhaps you meant to reference the column "cliente_transacoes.tipo_transacao_id".
+2022-10-18 21:11:18.925 -03 [30188] STATEMENT:  select min(valor), tipo_transacao from cliente_transacoes group by tipo_transacao;
+2022-10-18 21:37:10.131 -03 [30188] ERROR:  syntax error at or near "on" at character 94
+2022-10-18 21:37:10.131 -03 [30188] STATEMENT:  select banco.numero, banco.nome, agencia.numero, agencia.nome from banco 
+	cross join agencia on agencia.banco_numero = banco.numero;
+2022-10-18 21:43:25.585 -03 [30188] ERROR:  syntax error at or near "." at character 109
+2022-10-18 21:43:25.585 -03 [30188] STATEMENT:  select banco.nome, 
+	       agencia.nome, 
+		   conta_corrente.numero, 
+		   conta_corrente.digito 
+		   cliente.nome
+	  from banco 
+	   inner join agencia on agencia.banco_numero = banco.numero
+	   inner join conta_corrente on conta_corrente.banco_numero = banco.numero --poderia ser agencia.banco_numero tambem
+	     and conta_corrente.agencia_numero = agencia.numero
+	   inner join cliente on cliente.numero = conta_corrente.cliente_numero;
+2022-10-18 21:58:25.035 -03 [32856] ERROR:  syntax error at or near ";" at character 157
+2022-10-18 21:58:25.035 -03 [32856] STATEMENT:  WITH params as(
+		select 213 as banco_numero	
+	), tbl_tmp_banco as (
+		select numero, nome
+		from banco
+		inner join params on params.banco_numero = banco.numero;
+	SELECT numero, nome FROM tbl_tmp_banco
+2022-10-18 21:58:57.464 -03 [32856] ERROR:  syntax error at or near "SELECT" at character 158
+2022-10-18 21:58:57.464 -03 [32856] STATEMENT:  WITH params AS(
+		SELECT 213 AS banco_numero	
+	), tbl_tmp_banco AS (
+		SELECT numero, nome
+		FROM banco
+		INNER JOIN params ON params.banco_numero = banco.numero
+	SELECT numero, nome FROM tbl_tmp_banco
+2022-10-18 22:03:27.676 -03 [32856] ERROR:  relation "params" does not exist at character 126
+2022-10-18 22:03:27.676 -03 [32856] STATEMENT:  
+	WITH params_name AS(
+		SELECT 'Thierry Santos' AS cliente_nome	
+	), tbl_tmp_banco AS (
+		SELECT nome
+		FROM cliente
+		INNER JOIN params ON params.cliente_nome = cliente.nome
+	)
+	SELECT nome FROM tbl_tmp_banco
+2022-10-18 22:03:43.403 -03 [32856] ERROR:  missing FROM-clause entry for table "params" at character 140
+2022-10-18 22:03:43.403 -03 [32856] STATEMENT:  WITH params_name AS(
+		SELECT 'Thierry Santos' AS cliente_nome	
+	), tbl_tmp_banco AS (
+		SELECT nome
+		FROM cliente
+		INNER JOIN params_name ON params.cliente_nome = cliente.nome
+	)
+	SELECT nome FROM tbl_tmp_banco
+2022-10-18 22:10:50.286 -03 [32856] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.286 -03 [27700] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.286 -03 [29396] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.286 -03 [30188] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.286 -03 [7660] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.286 -03 [23216] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.287 -03 [16420] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-18 22:10:50.287 -03 [27724] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

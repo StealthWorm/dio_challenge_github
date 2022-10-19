@@ -1,0 +1,43 @@
+2022-10-17 18:41:02.365 -03 [37512] LOG:  database system was shut down at 2022-10-15 10:59:36 -03
+2022-10-17 18:41:39.973 -03 [42100] ERROR:  column "datlastsysoid" does not exist at character 172
+2022-10-17 18:41:39.973 -03 [42100] STATEMENT:  
+	SELECT
+	    db.oid as did, db.datname, db.datallowconn,
+	    pg_encoding_to_char(db.encoding) AS serverencoding,
+	    has_database_privilege(db.oid, 'CREATE') as cancreate, datlastsysoid,
+	    datistemplate
+	FROM
+	    pg_catalog.pg_database db
+	WHERE db.datname = current_database()
+2022-10-17 18:42:33.478 -03 [42100] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 18:43:17.390 -03 [40964] ERROR:  column "datlastsysoid" does not exist at character 172
+2022-10-17 18:43:17.390 -03 [40964] STATEMENT:  
+	SELECT
+	    db.oid as did, db.datname, db.datallowconn,
+	    pg_encoding_to_char(db.encoding) AS serverencoding,
+	    has_database_privilege(db.oid, 'CREATE') as cancreate, datlastsysoid,
+	    datistemplate
+	FROM
+	    pg_catalog.pg_database db
+	WHERE db.datname = current_database()
+2022-10-17 18:46:02.367 -03 [36416] LOG:  checkpoint starting: time
+2022-10-17 18:46:02.403 -03 [36416] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.003 s, total=0.036 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB
+2022-10-17 19:00:55.861 -03 [40964] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 19:02:11.795 -03 [18428] ERROR:  column "datlastsysoid" does not exist at character 172
+2022-10-17 19:02:11.795 -03 [18428] STATEMENT:  
+	SELECT
+	    db.oid as did, db.datname, db.datallowconn,
+	    pg_encoding_to_char(db.encoding) AS serverencoding,
+	    has_database_privilege(db.oid, 'CREATE') as cancreate, datlastsysoid,
+	    datistemplate
+	FROM
+	    pg_catalog.pg_database db
+	WHERE db.datname = current_database()
+2022-10-17 19:08:24.639 -03 [18428] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2022-10-17 19:09:50.078 -03 [40340] ERROR:  canceling statement due to user request
+2022-10-17 19:09:50.100 -03 [36416] LOG:  shutting down
+2022-10-17 19:09:50.106 -03 [36416] LOG:  checkpoint starting: shutdown immediate
+2022-10-17 19:09:50.132 -03 [36416] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.033 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
