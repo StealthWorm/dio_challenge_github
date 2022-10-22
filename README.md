@@ -161,7 +161,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;">Simplificando Projetos Java com o Spring Boot</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;">Imersão no Spring Framework com Spring Boot</td>

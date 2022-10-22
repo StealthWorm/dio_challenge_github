@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d1ad81cc-e162-4668-9532-f692b1529915" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Avançando Tecnicamente com Spring Framework e API/teste.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/bin/main/org/challenge/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/bin/main/org/challenge/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/classes/java/main/org/challenge/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/classes/java/main/org/challenge/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/classes/org.challenge.ContaTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/classes/org.challenge.ContaTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/packages/org.challenge.html" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/reports/tests/test/packages/org.challenge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/test-results/test/TEST-org.challenge.ContaTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/test-results/test/TEST-org.challenge.ContaTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../desafio-dio-banco/src/main/java/org/challenge/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../desafio-dio-banco/src/main/java/org/challenge/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GPwC34dQQ9499D5E14XAN1lQeZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Thier/OneDrive/Área de Trabalho/DIO_CODE/dio_challenge_github/Dominando a Linguagem de Programação Java/Projetos/Debug"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1ad81cc-e162-4668-9532-f692b1529915" name="Changes" comment="" />
+      <created>1666303395256</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666303395256</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
