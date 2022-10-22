@@ -149,15 +149,15 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
   <table style="width:100%; border: 1px solid #FF82B0;">
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;; font-size:12px">Principais Protocolos de Comunicação da Internet</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;">Gerenciamento de Dependências e Build em Java com Maven</td>
-      <td style="display: flex; justify-content: center;">❌</td>
+      <td style="display: flex; justify-content: center;">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;">Introdução ao Spring Framework</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%; font-size:12px;">Simplificando Projetos Java com o Spring Boot</td>

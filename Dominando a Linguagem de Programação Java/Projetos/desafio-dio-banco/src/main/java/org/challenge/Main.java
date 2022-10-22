@@ -67,7 +67,7 @@ public class Main {
 
         switch (value) {
             case 0: {
-                Set<Conta> contaCorrente = banco.getContas().stream().filter(x -> x.tipoConta == 1).collect(Collectors.toSet());
+                Set<Conta> contaCorrente = banco.getContas().stream().filter(x -> x.tipoConta == 0).collect(Collectors.toSet());
                 JPanel painelFundo;
                 JTable tabela;
                 JScrollPane barraRolagem;

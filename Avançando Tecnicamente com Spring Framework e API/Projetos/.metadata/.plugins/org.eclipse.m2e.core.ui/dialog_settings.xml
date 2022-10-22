@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="br.com.meuPrimeiroProjetoSpring"/>
+			<item value="org.springframework.boot"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="meu-projeto-spring"/>
+			<item value="spring-boot-starter-parent"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+			<item value="2.7.5"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\springboottest"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\utilizandoFeign"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\personapi"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\DependencyInjection"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\introducao-spring-master"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\first-proj-spring"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\meu-projeto-spring2"/>
+			<item value="C:\Users\Thier\OneDrive\Área de Trabalho\DIO_CODE\dio_challenge_github\Avançando Tecnicamente com Spring Framework e API\Projetos\meu-projeto-spring"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

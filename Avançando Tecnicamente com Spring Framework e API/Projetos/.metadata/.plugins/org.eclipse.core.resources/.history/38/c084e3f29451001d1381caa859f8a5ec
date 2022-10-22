@@ -1,0 +1,18 @@
+package org.example;
+
+public class Condutor {
+    public static void main(String[] args) {
+        Condutor cond = new Condutor(new Moto());
+        cond.automovel();
+    }
+    
+    private IVeiculo veiculo;
+
+    public Condutor(IVeiculo obj){
+        this.veiculo = obj;
+    }
+
+    public void automovel() {
+        veiculo.acao();
+    }
+}

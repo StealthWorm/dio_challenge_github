@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.challenge.ContaTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-14T23:52:57" hostname="VAN_HELSING" time="0.022">
+<testsuite name="org.challenge.ContaTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-20T11:55:54" hostname="VAN_HELSING" time="0.027">
   <properties/>
-  <testcase name="validarLimiteCreditoContaCorrenteE5000()" classname="org.challenge.ContaTest" time="0.019"/>
+  <testcase name="validarLimiteCreditoContaCorrenteE5000()" classname="org.challenge.ContaTest" time="0.024"/>
   <testcase name="validarContadorNumeroConta()" classname="org.challenge.ContaTest" time="0.001"/>
-  <testcase name="validarSeSaldoEZeroEmAmbasAsContas()" classname="org.challenge.ContaTest" time="0.001"/>
+  <testcase name="validarSeSaldoEZeroEmAmbasAsContas()" classname="org.challenge.ContaTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
