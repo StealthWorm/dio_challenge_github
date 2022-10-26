@@ -56,7 +56,7 @@
   - **@Service:**
       -  Notação de nivel de classe. Não pode ser declarada sobre métodos.
       -  Para classes que lidam com regra de negócio, acesso à serviços.
-      -  
+      
   - **@Controller / @RestController:** 
       - Para classes que representam controladores no SpringIOC, ou seja, aquela que vai controlar as chamadas de telas.
       - Apresentação de Dados.
@@ -70,6 +70,7 @@
       - Todas os outros stereotypes vem dessa.
   
   ### Bean Scopes
+  - Utilizada para marcar o tempo de vida  de um objeto gerenciado pelo conteiner.
   - Singleton: 
     - uma unica instancia pra qualquer chamada ou objeto do projeto. 
     - Qualquer Bean onde não tenha sido definido o escopo sera tratada como essa por padrão.
@@ -204,6 +205,65 @@
 
     }
     ```
+  ## Spring Boot
+  Enquanto o Spring Framework é baseado no padrão de Injeção de Dependencia, o Springboot foca em configuração automática.
+  Foca na produtividade.
+  Configurações automáticas para evitar trabalho verboso no inicio dos projetos.
+  
+  - Starters mais utilizados
+    - data-jpa: Integração com banco de dados via JPA - Hibernate.
+    - data-mongodb: Integração com banco de dados MongoDB.
+    - web: Inclusão do container Tomcat para aplicações REST.
+    - web-services: Webservices baseados na arquitetura SOAP.
+
+  A ideia do Spring Boot é que componentes nao precisem mais ser instanciados atraves do no "new Component()"
+
+  **Beans x Components**
+  - *@Bean*: Quando não tenho acesso ao código fonte. Bibliotecas externas que voce quer declarar como um componente reutilizável.
+    - classes externas nao possuem o "@Component" pra declarar ela como Bean e poder reutilizar, por isso é preciso criar uma estrutura pra declarar ele como um @Bean. Por exemplo,  para utilizar a classe "Gson", do Google, poderia ser criada uma classe com a anotação "@Configuration" onde seria declarado um "@Bean" que retorna um novo Gson. Dessa forma a extrutura que antes era externa agora pode ser reutilizada em qualquer parte do código.
+    - Caso a referecia externa precise ser utilizada varias vezes não é uma boa pratica declarar o Beans no main pra cada chamada, o ideal é criar uma classe "Beans" referenciando todos os beans externos que precisamos utilizar.
+  - *@Component*: Quando é uma classe que possui a possibilidade ou necessidade de ser provida por Injeção de Dependencia.
+
+  **@Value**
+    - ele serve para que você possa capturar o valor de alguma propriedade definida lá naquele arquivo application.properties no diretório resources.
+    - Em um contexto de API, por exemplo, onde preciso me conectar com banco utilizando credenciais, poderiamos colocar os dados de acesso no diretorio resources como constantes e utilizar esses valores nos locais adequados. Como se fosse um ".env".
+    - Remove a necessidade de declarar valores direto na classe.
+    - **@Value("${name:NoReply-DIO}")**. Depois dos dois pontos *":"* ele define um valor padrão, caso nao encontre uma propriedade definida no resources.
+  
+  **@ConfigurationProperties (prefix)**
+    - Uma maneira de incluir uma configuração externalizada e de fácil acesso a propriedades definidas em arquivos de propriedades. 
+    - Definir de forma centralizada todas as informações referentes a um contexto 
+    - Imagine o caso de uma API com varias credenciais. Ao invés de declarar as variaveis de acesso localmente na classe, voce cria configurações para cada contexto em que voce pretende testar, não deixando fixo os dados no código e tornando mais facil criar instancias da aplicação tendo valores pertinentes ao contexto.
+    - "Eu tenho um Bean de Configuração que todos os seus valores vão vir através do ApplicationProperties"
+    - Centralizar as declarações de "@Value", por exemplo, se o diretório de resources possui 3 atributos
+      ```
+      remetente.nome=NoReply-DIO 
+      remetente.email=noreply@dio.com.br
+      remetente.telefones=1145651725,1187651343
+      ```
+     e queremos setar valores em varias classes utilizando essas propriedades, ao invés de declarar chamadas utilizando "remetente.", podemos criar um @ConfigurationProperties e definir o contexto "remetente" na classe que vai utilizar esses valores
+      ```
+        @Configuration
+        @ConfigurationProperties(prefix = "remetente")
+        public class Rementente {
+          ...
+        }
+      ```
+      A partir dessas anotações ele diz "eu sou um Bean de Configuração" e todos os meus atributos estou pertinentes ao prefixo "remetente". Dessa forma a chamada dos valores é dinamica.
+
+    ### ORM e JPA
+    ORM: Mapeamento de Opjeto Relacional, um recurso para aproximar o paradigma da POO ao contexto de banco de dados relacional.
+    É realizado através do mapeamento de objeto para uma tabela por uma biblioteca ou framework.
+
+    JPA: É uma especificação baseada em interfaces, que atraves de um framework realiza operações de persistencia de objetos em Java.
+
+    Em um projeto Spring Boot, toda a parte de configuração fica centralizada no arquivo **application.properties**, inclusive configurações de banco.
+
+    Repository Pattern
+       é um padrão de projeto similiar oa DAO (Data Object Access) no sentido de seu objetivo é abstrair o acesso  a dados de forma genérica a partir do seu modelo.
+       O projeto Spring Data JPA facilita a implementação do padrão Repository através do AOP (Aspect Oriented Programming)
+       Utilizando-se de apenas uma interface, o Spring irá "gerar" dinamicamente a implementação dos métodos de acesso a dados.
+
   ## Spring Boot Test
   - Bastante utilizado no desenvolvimento de aplicações java para testar comportamento do código e regras de negócio.
   - **spring-boot-start-test**
