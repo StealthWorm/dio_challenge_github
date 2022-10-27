@@ -63,6 +63,7 @@
       - Apresentação de Dados.
       - Pegas os dados tratados pelos services e mostra em tela.
       - @RestController, ao inves de trazer uma tela inteiro para o frontend, ele vai pegar alguns dados e voltar para o front como um json. Faz as mesmas coisas que o @Controller, mas serve pra retornar dados em JSON.
+        - responsável por designar o bean do componente que suporta requisições HTTP com base na arquitetura REST.
       - Mostra um json em tela ao acessar o caminho.
   - **@Configuration:** 
       - classe para configurações do projeto. Por exmplo o @Beans, controle de usuários, etc.
@@ -156,7 +157,7 @@
   ```
   ### Bibliotecas e Dependencias
   - **Swagger**
-    - Dependencia bastante utilizada comentar e documentar APIs REST.
+    - Dependencia bastante utilizada para comentar e documentar APIs REST.
     - Por boas praticas criamos pacotes onde vao ficar os arquivos de config da documentação;
     - Contem diversas ferramentas  para desenvolver APIs com a especificação OpenAPI Specification (OAS). Com o OAS voce pode descrever recursos, consumir e produzir  serviços, URIs, modelos de dados, métodos HTTP e códigos de resposta.
     - Precisa ser adicionada nas dependencias do projeto.
@@ -302,10 +303,11 @@
         O **@GetMapping** possui um principio parecido ,ja que trabalha com requisições do tipo GET.
 
       @PathVariable
-        Para extrair informações d euma URI
+        Para extrair informações de uma URI
 
       @RequestBody
         Requisita o corpo da requisição HTTP em um formato JSON
+
   ### Spring Boot Tratamento de Exceções
     @ExceptionHandler: funciona no nivel do "@Controller", onde cada método trata uma exceção de forma declarativa. Nçao é muito produtivo em contextos maiores.
 
