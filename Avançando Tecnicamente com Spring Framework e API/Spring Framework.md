@@ -58,6 +58,7 @@
       -  Para classes que lidam com regra de negócio, acesso à serviços.
       
   - **@Controller / @RestController:** 
+      - Nada mais é que uma classe contendo anotações especificas para a disponibilização de recursos HTTP baseados em serviços e regras de negócio.
       - Para classes que representam controladores no SpringIOC, ou seja, aquela que vai controlar as chamadas de telas.
       - Apresentação de Dados.
       - Pegas os dados tratados pelos services e mostra em tela.
@@ -155,7 +156,8 @@
   ```
   ### Bibliotecas e Dependencias
   - **Swagger**
-    - Dependencia bastante utilizada commitar APIs REST.
+    - Dependencia bastante utilizada comentar e documentar APIs REST.
+    - Por boas praticas criamos pacotes onde vao ficar os arquivos de config da documentação;
     - Contem diversas ferramentas  para desenvolver APIs com a especificação OpenAPI Specification (OAS). Com o OAS voce pode descrever recursos, consumir e produzir  serviços, URIs, modelos de dados, métodos HTTP e códigos de resposta.
     - Precisa ser adicionada nas dependencias do projeto.
     - A classe recebe Annotation "EnableSwagger2"
@@ -173,11 +175,26 @@
                                   .title("API Person")
                                   .description("REST API para gerenciamento de pessoas")
                                   .version("1.0.0")
-                                  .concat(new Contatc("Renan Marques", "github/re04nan", null))
+                                  .contact(new Contact("Renan Marques", "github/re04nan", null))
                                   .build();
       }
     }
     ```
+    - Para que o Swagger não precise escanear toda a aplicação, definimos caminho do pacote de Controllers no ".apis()"
+
+  **Observações:**
+    - Caso ele de erro de compilação apos criar a classe de Configuração tentar os seguintes passos:
+      - Adicionar "spring.mvc.pathmatch.matching-strategy=ant_path_matcher" no application.properties na pasta de resources
+      - adicionar a dependencia a seguir junto das do swagger no pom.xml
+        ```java
+          <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+          </dependency>
+        ```
+      - ao inves de acessar o caminho padrao no navegador "http://localhost:8080/swagger-ui.html", tente trocar por "http://localhost:8080/swagger-ui/index.html"
+
   - **Feign**
     - Cliente de Serviço Web declarativo (cliente HTTP) criado pela Netflix.
     - Com ele é possível criar clientes API HTTP no java de forma mais simples para chamar/consumir os serviços REST, utilizando anotações.
@@ -235,48 +252,80 @@
     - Definir de forma centralizada todas as informações referentes a um contexto 
     - Imagine o caso de uma API com varias credenciais. Ao invés de declarar as variaveis de acesso localmente na classe, voce cria configurações para cada contexto em que voce pretende testar, não deixando fixo os dados no código e tornando mais facil criar instancias da aplicação tendo valores pertinentes ao contexto.
     - "Eu tenho um Bean de Configuração que todos os seus valores vão vir através do ApplicationProperties"
-    - Centralizar as declarações de "@Value", por exemplo, se o diretório de resources possui 3 atributos
-      ```
+    - Deve-se centralizar as declarações de "@Value", por exemplo, se o diretório de resources possui 3 atributos
+      ```java
       remetente.nome=NoReply-DIO 
       remetente.email=noreply@dio.com.br
       remetente.telefones=1145651725,1187651343
       ```
      e queremos setar valores em varias classes utilizando essas propriedades, ao invés de declarar chamadas utilizando "remetente.", podemos criar um @ConfigurationProperties e definir o contexto "remetente" na classe que vai utilizar esses valores
-      ```
+      ```java
         @Configuration
         @ConfigurationProperties(prefix = "remetente")
-        public class Rementente {
-          ...
-        }
+        public class Rementente {}
       ```
       A partir dessas anotações ele diz "eu sou um Bean de Configuração" e todos os meus atributos estou pertinentes ao prefixo "remetente". Dessa forma a chamada dos valores é dinamica.
 
-    ### ORM e JPA
-    ORM: Mapeamento de Opjeto Relacional, um recurso para aproximar o paradigma da POO ao contexto de banco de dados relacional.
-    É realizado através do mapeamento de objeto para uma tabela por uma biblioteca ou framework.
+  ### ORM e JPA
+      ORM: Mapeamento de Opjeto Relacional, um recurso para aproximar o paradigma da POO ao contexto de banco de dados relacional.
+      É realizado através do mapeamento de objeto para uma tabela por uma biblioteca ou framework.
 
-    JPA: É uma especificação baseada em interfaces, que atraves de um framework realiza operações de persistencia de objetos em Java.
+      JPA: É uma especificação baseada em interfaces, que atraves de um framework realiza operações de persistencia de objetos em Java.
 
-    Em um projeto Spring Boot, toda a parte de configuração fica centralizada no arquivo **application.properties**, inclusive configurações de banco.
+      Em um projeto Spring Boot, toda a parte de configuração fica centralizada no arquivo **application.properties**, inclusive configurações de banco.
 
-    Repository Pattern
-       é um padrão de projeto similiar oa DAO (Data Object Access) no sentido de seu objetivo é abstrair o acesso  a dados de forma genérica a partir do seu modelo.
-       O projeto Spring Data JPA facilita a implementação do padrão Repository através do AOP (Aspect Oriented Programming)
-       Utilizando-se de apenas uma interface, o Spring irá "gerar" dinamicamente a implementação dos métodos de acesso a dados.
+      Repository Pattern
+        é um padrão de projeto similiar oa DAO (Data Object Access) no sentido de seu objetivo é abstrair o acesso  a dados de forma genérica a partir do seu modelo.
+        O projeto Spring Data JPA facilita a implementação do padrão Repository através do AOP (Aspect Oriented Programming)
+        Utilizando-se de apenas uma interface, o Spring irá "gerar" dinamicamente a implementação dos métodos de acesso a dados.
 
-  ## Spring Boot Test
-  - Bastante utilizado no desenvolvimento de aplicações java para testar comportamento do código e regras de negócio.
-  - **spring-boot-start-test**
-  - Diz ao Spring Boot para procurar uma classe de configuração principal e usá-lá para iniciar um contexto de aplicativo Spring.
-  - A anotação "@SpringBootTest" é utilizada em uma classe de teste e diz ao Spring Boot para procurar uma classe de configuração principal, por exemplo, o @SpringBootApplication, e usá-la para iniciar um contexto de aplicativo Spring.
-  - É bem semelhante aos testes unitarios padrão do JUnit em Java, com a sintaxe @Test e algumas validações nos metodos como o "assertEquals".
+  ### Spring Boot REST API
+      Controller: recurso que disponibiliza as funcionalidades de negócio da aplicação através do protocolo HTTP. É como uma camada que diz "o serviço funciona de forma local e quero disponibiliza-lo para o mundo através de um web API"
+      
+      ```java
+      @RestController
+      public class WelcomeController {
 
-  É um tipo de teste que envolve comunicação entre as unidades, simulando requisições.
-  - Na classe que vai ter um contexto para ser analizada é preciso da annotation "@SpringBootTest"
-  - Na pasta de testes, é preciso criar um novo arquivo de testes com algumas anotações imbutidas no SpringBootTest:
-    - @WebMvcTest                        -> utilizada para testes de requisições
-    - @ExtendWith(SpringExtension.class) -> pra poder utilizar alguns contextos da biblioteca de testes
-  - 
+          @GetMapping //dizendo que o método welcome é um recurso HTTP do tipo GET utilizando GetMapping
+          public String welcome(){
+              return "Welcome to my Spring Boot Web API";
+          }
+      }
+      ```
+
+      Annotations
+      @Controller
+        Essa anotação é usada para fazer uma classe como um controlador da web, que pode lidar com solicitações de clientes e enviar uma resposta de volta ao cliente. Esta é uma anotação de nível de classe, que é colocada no topo de sua classe de controlador. Semelhante a @Service e @Repository , também é uma anotação de estereótipo.
+      @RequestMapping (*"@RequestMapping("/")"*)
+        A classe Controller contém vários métodos de manipulador para lidar com diferentes solicitações HTTP, mas como o Spring mapeia uma solicitação específica para um método de manipulador específico? Bem, isso é feito com a ajuda da  anotação @RequestMapping . É uma anotação de nível de método que é especificada sobre um método de manipulador.
+        Ele fornece o mapeamento entre o caminho da solicitação e o método do manipulador. Ele também suporta algumas opções avançadas que podem ser usadas para especificar métodos de manipulador separados para diferentes tipos de solicitações no mesmo URI, como você pode especificar um método para manipular solicitações GET e outro para manipular solicitações POST no mesmo URI.
+        O **@GetMapping** possui um principio parecido ,ja que trabalha com requisições do tipo GET.
+
+      @PathVariable
+        Para extrair informações d euma URI
+
+      @RequestBody
+        Requisita o corpo da requisição HTTP em um formato JSON
+  ### Spring Boot Tratamento de Exceções
+    @ExceptionHandler: funciona no nivel do "@Controller", onde cada método trata uma exceção de forma declarativa. Nçao é muito produtivo em contextos maiores.
+
+    ResponseStatusExceptionResolver: sua principal responsabilidade é usar a anotação "@ResponseStatus" disponivel em exceções personalizadas e mapear essas exceções para códigos de status HTTP. Se tiver uma exceção especifica, a aplicação vai receber pelo status que foi apresentado o redirecionamento para uma exceção.
+
+    RestControllerAdvice: nos permite consolidar multiplos @ExceptionHandler em um único componente global de tratamento de erros. Nos da controle total  sobre o corpo da resposta, bem como o código de status.
+
+  ### Spring Boot Test
+      - Bastante utilizado no desenvolvimento de aplicações java para testar comportamento do código e regras de negócio.
+      - **spring-boot-start-test**
+      - Diz ao Spring Boot para procurar uma classe de configuração principal e usá-lá para iniciar um contexto de aplicativo Spring.
+      - A anotação "@SpringBootTest" é utilizada em uma classe de teste e diz ao Spring Boot para procurar uma classe de configuração principal, por exemplo, o @SpringBootApplication, e usá-la para iniciar um contexto de aplicativo Spring.
+      - É bem semelhante aos testes unitarios padrão do JUnit em Java, com a sintaxe @Test e algumas validações nos metodos como o "assertEquals".
+
+      É um tipo de teste que envolve comunicação entre as unidades, simulando requisições.
+      - Na classe que vai ter um contexto para ser analizada é preciso da annotation "@SpringBootTest"
+      - Na pasta de testes, é preciso criar um novo arquivo de testes com algumas anotações imbutidas no SpringBootTest:
+        - @WebMvcTest                        -> utilizada para testes de requisições
+        - @ExtendWith(SpringExtension.class) -> pra poder utilizar alguns contextos da biblioteca de testes
+  
 
 
 
