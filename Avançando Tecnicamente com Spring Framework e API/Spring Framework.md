@@ -328,7 +328,35 @@
         - @WebMvcTest                        -> utilizada para testes de requisições
         - @ExtendWith(SpringExtension.class) -> pra poder utilizar alguns contextos da biblioteca de testes
   
+  ### SpringBoot Security
+    - É apenas um grupo de filtros de servlet que ajudam a adicionar autenticação e autorização ao seu aplicativo web.
+    - Precisa ser adicionado nas dependencias do pom.xml
+    - Já gera algumas configurações pré-definidas para uso de autenticação, como pagina de login para autenticação simples.
+    - http://localhost:8080/login. A senha para o user é gerada no console
+    - voce pode setar credenciais no "application.properties"
+    - Geração de usuários em memória permite criar mais de um usuário e perfis de acesso.
+    - use {bcrypt} para NoOpPasswordEncoder
+    - use {pbkdf2} para Pbkdf2PasswordEncoder
+    - use {scrypt} para SCryptPasswordEncoder
+    - use {sha256} para StandardPasswordEncoder
+    - @PreAuthorize("hasRole('MANAGERS', 'USERS')"): define as roles que poderao acessar determinada rota definida no "@GetMapping("/users")". Nesse caso, as roles de USERS e MANAGERS podem acessar a rota /users após se autenticarem.
+    - Configure Apapter
+      - elimina a necessidade dos Controllers de expor as rotas e os perfis de usuário que acessam essas rotas.
+    
+    A interface UserDetailService é usada para recuperar dados relacionados ao usuário. 
+      - "import org.springframework.security.core.userdetails.UserDetailsService;"
 
+    **JWT - JSON WEB TOKEN**
+    padrão da internet para a criação de dados com assinatura opcional e/ou criptografada cujo conteudo contem o JSON 
+    estratégia para realizar autenticação entre duas partes por meio de um token assinado que autentica a requisição web. 
+    HEADER, PAYLOAD(corpo), SIGNATURE
+    Exige um padrãod e camadas
+      - model: camada de entidades.
+      - dto: camada que contém os Data Transfer Objects, para não deixar as entidades expostas na aplicação.
+      - repository: contem os repositorios com base no Spring Data JPA.
+      - service: Camada que detem a regra de negócio e comunicação com a base de dados via repositorys.
+      - controller: camada que contem recursos http expostos na API.
+      - security: Camada responsavel pela segurança.
 
 
 
