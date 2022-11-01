@@ -1,7 +1,7 @@
 package dio.diospringsecurityjwt.controller;
 
-import dio.diospringsecurityjwt.dtos.Login;
-import dio.diospringsecurityjwt.dtos.Sessao;
+import dio.diospringsecurityjwt.controller.dtos.Login;
+import dio.diospringsecurityjwt.controller.dtos.Sessao;
 import dio.diospringsecurityjwt.model.User;
 import dio.diospringsecurityjwt.repository.UserRepository;
 import dio.diospringsecurityjwt.security.JWTCreator;

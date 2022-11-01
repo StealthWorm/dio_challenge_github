@@ -156,7 +156,7 @@
 
   ```
   ### Bibliotecas e Dependencias
-  - **Swagger**
+  - **Swagger / org.springdoc**
     - Dependencia bastante utilizada para comentar e documentar APIs REST.
     - Por boas praticas criamos pacotes onde vao ficar os arquivos de config da documentação;
     - Contem diversas ferramentas  para desenvolver APIs com a especificação OpenAPI Specification (OAS). Com o OAS voce pode descrever recursos, consumir e produzir  serviços, URIs, modelos de dados, métodos HTTP e códigos de resposta.
@@ -302,10 +302,10 @@
         Ele fornece o mapeamento entre o caminho da solicitação e o método do manipulador. Ele também suporta algumas opções avançadas que podem ser usadas para especificar métodos de manipulador separados para diferentes tipos de solicitações no mesmo URI, como você pode especificar um método para manipular solicitações GET e outro para manipular solicitações POST no mesmo URI.
         O **@GetMapping** possui um principio parecido ,ja que trabalha com requisições do tipo GET.
 
-      @PathVariable
+      **@PathVariable**
         Para extrair informações de uma URI
 
-      @RequestBody
+      **@RequestBody**
         Requisita o corpo da requisição HTTP em um formato JSON
 
   ### Spring Boot Tratamento de Exceções
