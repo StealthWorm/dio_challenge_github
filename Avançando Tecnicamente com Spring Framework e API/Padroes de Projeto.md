@@ -8,5 +8,5 @@ Padrões Estruturais: Adapter, Bridge, Composite, Decorator, **Facade**, Flyweig
   @Bean, @Autowired
 **STRATEGY**: Simplificar a variação de algoritmos para a resolução de um mesmo problema. Criação de interface de metodos , cujas classes de operação podem implementar e sobrescrever o comportamento padrão.
   @Service, @Repository
-**FACADE**: Prever uma interface que reduza a complexidade nas integrações com subsistemas. Interface mais coesa para que varios clientes consumam. O facade abstrai a complexidade da integração de multipls interfaces, para que um usuario nao tenha que se preocupar com as multiplas chamadas ou instancias diferentes, pois esta tudo centralizado.
+**FACADE**: Prever uma interface que reduza a complexidade nas integrações com subsistemas. Interface mais coesa para que varios clientes consumam. O facade abstrai a complexidade da integração de multiplas interfaces, para que um usuario nao tenha que se preocupar com as multiplas chamadas ou instancias diferentes, pois esta tudo centralizado.
   Feign
