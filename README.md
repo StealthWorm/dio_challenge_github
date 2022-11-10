@@ -181,7 +181,7 @@ O curso conta com uma carga horári de 93 hrs sendo subdividido em 5 módulos qu
     </tr>
     <tr>
       <td style="border-right: 1px solid #FF82B0; width:90%;font-size:12px;">Realizando Deploy na Nuvem de um Conjunto de API’s Desenvolvida em Spring Boot</td>
-      <td style="display: flex;justify-content: center">❌</td>
+      <td style="display: flex;justify-content: center">✅</td>
     </tr>
 </table>
 </details>
