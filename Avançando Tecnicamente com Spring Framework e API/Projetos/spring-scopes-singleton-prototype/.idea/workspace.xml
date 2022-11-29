@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f543b4cc-c01b-4b44-a341-450d0e198849" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/org/dio/gof/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/org/dio/gof/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/org/dio/gof/facade/Facade.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/org/dio/gof/facade/Facade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/subsistema1/crm/CrmService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Padroes de Projeto/lab-padroes-projeto-java/target/classes/subsistema2/cep/CepApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projeto Nuvem/parking_cloud_dio" beforeDir="false" afterPath="$PROJECT_DIR$/../Projeto Nuvem/parking_cloud_dio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introducao-spring-master/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introducao-spring-master/target/classes/META-INF/maven/introducao-spring/introducao-spring/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../introducao-spring-master/target/classes/META-INF/maven/introducao-spring/introducao-spring/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meu-projeto-spring/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meu-projeto-spring/target/classes/META-INF/maven/br.com.meuPrimeiroProjetoSpring/meu-projeto-spring/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meu-projeto-spring/target/classes/META-INF/maven/br.com.meuPrimeiroProjetoSpring/meu-projeto-spring/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../personapi/.apt_generated/com/digitalinnovatione/personapi/mapper/PersonMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../personapi/.apt_generated/com/digitalinnovatione/personapi/mapper/PersonMapperImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2I0rOLSL8ruzuqwwhd4df2BZp09" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Thier/OneDrive/Área de Trabalho/DIO_CODE/dio_challenge_github/Avançando Tecnicamente com Spring Framework e API/Projetos/spring-scopes-singleton-prototype"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f543b4cc-c01b-4b44-a341-450d0e198849" name="Changes" comment="" />
+      <created>1669329331720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669329331720</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
