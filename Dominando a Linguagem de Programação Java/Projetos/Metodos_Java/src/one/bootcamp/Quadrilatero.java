@@ -1,5 +1,8 @@
 package one.bootcamp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Quadrilatero {
     public static double area(double lado) {
         return lado * lado;

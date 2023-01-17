@@ -39,10 +39,11 @@ public class Main {
         System.out.println("\n");
 
         //SOBRECARGA
-        System.out.println("Teste de sobrecarga de métodos");
+//        System.out.println("Teste de sobrecarga de métodos");
 //        Quadrilatero.area(2);
 //        Quadrilatero.area(4d, 5d);
 //        Quadrilatero.area(6f, 6f, 4f);
+
 
         System.out.println("Área do quadrado: " + Quadrilatero.area(2));
         System.out.println("Área do retângulo: " + Quadrilatero.area(4d, 5d));
